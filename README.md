@@ -522,13 +522,13 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 解决办法：
 
 1、页面引用
+
+
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 2.0)" href="retina.css" />
  
-
-
 2、CSS文件里
 
 	#header {
