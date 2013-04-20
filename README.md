@@ -514,8 +514,8 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	input:-ms-clear{display:none;}
 	
 ##关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
- [http://blog.sina.com.cn/s/blog_6da647a601011u4v.html](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
- [http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
+[http://blog.sina.com.cn/s/blog_6da647a601011u4v.html](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
+[http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
  
 
 ##js事件
@@ -567,11 +567,14 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 		}
 	}
 	
-##ie10的特殊鼠标事件    [http://www.mansonchor.com/blog/blog_detail_73.html](http://www.mansonchor.com/blog/blog_detail_73.html "article5")
+##ie10的特殊鼠标事件
+
+[http://www.mansonchor.com/blog/blog_detail_73.html](http://www.mansonchor.com/blog/blog_detail_73.html "article5")
 
 ##不让android识别邮箱
 
 	<meta content="email=no" name="format-detection" />
+	
 ##禁止ios弹出各种操作窗口
 
 	-webkit-touch-callout:none
@@ -584,15 +587,19 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 	window.scrollX
  
  比如要绑定一个touchmove的事件，正常的情况下类似这样(来自呼吸二氧化碳)
+ 
 	$('div').on('touchmove', function(){
 	//.….code
 	{});
+	
 而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
+
 	$('div').on('touchmove', function(){
 	setTimeout(function(){
 	//.….code
 	},0);
 	{});
+	
 把代码放在setTimeout中，会发现程序变快.
 
 ##关于ios系统中，webapp启动图片在不同设备上的适应性设置
