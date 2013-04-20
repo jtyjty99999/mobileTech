@@ -38,10 +38,12 @@ A useful tools or tips list for mobile web application developing
 
 
 本资料很多引用了指尖上的js系列，在此向作者表示感谢
-
+==========
 
  [http://www.cnblogs.com/pifoo/archive/2011/05/23/webkit-touch-event-1.html](http://www.cnblogs.com/pifoo/archive/2011/05/23/webkit-touch-event-1.html "article1")
+ 
  [http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-2.html](http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-2.html "article2")
+ 
  [http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html](http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html "article3")
 
 
@@ -447,6 +449,8 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	a:hover, a.hover { /* 你的hover效果 */ }
 
 这样设计一个链接，感觉可以更像按钮。并且，这个模拟可以用在任何元素上。
+
+##flexbox布局模板
 
  [flex模板](http://jsbin.com/ibuwol/2/edit "article5")
 
