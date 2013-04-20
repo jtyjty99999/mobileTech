@@ -87,27 +87,42 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 因此，如果确实要加快对点击事件的响应，就应当绑定ontouchend事件。
 
 使用click会出现绑定点击区域闪一下的情况，解决：给该元素一个样式如下
+
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
 如果不使用click，也不能简单的用touchstart或touchend替代，需要用touchstart的模拟一个click事件，并且不能发生touchmove事件，或者用zepto中的tap（轻击）事件。
+
 	body
 	{
 	-webkit-overflow-scrolling: touch;
 	}
-用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置height:200px;overflow:auto;的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
-我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）我一开始也使用，不过自从用了-webkit-overflow-scrolling: touch;样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
+	
+用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置
+
+	height:200px;overflow:auto;
+	
+的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
+我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
+我一开始也使用，不过自从用了-webkit-overflow-scrolling: touch;样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
 
 详见  [http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/ ](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/  "css3渐变在线制作器")页面描述
+
+
 
 	<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
+	
 这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
 
 	<link rel="apple-touch-startup-image" href="/img/startup.png" />
+	
 这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	
 这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明在：
+
 [http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html ](http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html  "css3渐变在线制作器")里
 
 	<meta name="apple-touch-fullscreen" content="yes" />
@@ -374,50 +389,6 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
 	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
  
-
-##实现模拟弹出消息框（Alert）的例子：
-①定义过渡（在<style type="text/css">段中描述keyframes）：
-
-	@-webkit-keyframes DivZoom
-	{
-	0% { -webkit-transform: scale(0.01) }
-	60% { -webkit-transform: scale(1.05) }
-	80% { -webkit-transform: scale(0.95) }
-	100% { -webkit-transform: scale(1.00) }
-	}
-	.sZoom { -webkit-animation: DivZoom 0.5s ease-in-out }
- 
-
-（很容易看懂，将元素从缩小的0.01 倍--很小但不能为0 倍，放大到1.05 倍，再缩小到0.95倍，最后到1 倍即正常大小。整个过渡过程事件为0.5 秒，动画方式为ease-in-out，即慢到快再到慢，默认只进行1 次过渡。这正是大家经常看到的 iPhone 弹出的提示信息的动画效果！）
-②定义元素（在<body>段中）：
-
-	<div id="layerH" style="-webkit-border-radius:12px; border:2px solid #FFF;-webkit-box-shadow: 0px 2px 4px #888;position: absolute; left: 24px; top: 106px;<br>width: 256px; height: 268px; padding-left: 8px; padding-right: 8px;color: #FFFFFF; text-shadow: 1px 1px 1px #000; text-align: center;background-color: RGBA(32,48,96,0.9);
-	background-image:url('BG-Msg.png'); background-repeat:no-repeat;
-	z-index: 1; visibility: hidden; ">
-	<p><span style="font-size: 16pt; font-weight: bold">使用说明</span></p>
-	<hr noshade size="1">
-	<div id="HelpText" style="height: 120px">说明文字</div>
-	<hr noshade size="1">
-	<form name="formV" method="POST">
-	<input type="button" value="确认" name="B1"
-	style="width: 100%; height: 40px; font-size: 14pt; ont-weight: bold;
-	color: #FFFFFF; text-shadow: 0px -1px 1px #000;"
-	onclick=" layerH.style.visibility='hidden'">
-	</form>
-	</div>
- 
-
-③启动动画（在 javascript 定义的函数中）
-
-	function pHelp()
-	{
-	layerH.style.visibility = 'visible'
-	layerH.style.cssText = "-webkit-animation-delay: " + Math.random() + "ms"
-	layerH.className = 'sZoom'
-	}
- 
-
-(这个启动函数就很好理解了。但是为什么要使用-webkit-animation-delay 这句呢？因为当一个元素过渡显示完成后，若其样式没有变化，下一次将无法进行过渡动画显示。我们巧妙的利用其动画延迟时间定义，使其有所变化，就避免了上述问题。其中使用随机数函数Math.random()，产生一个大于0 小于1 的随机数。当然，延迟零点几毫秒，用户是不会察觉的。)
 
 ##锁定 viewport
 
