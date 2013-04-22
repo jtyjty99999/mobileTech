@@ -57,7 +57,17 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
  
 
 第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；
-尤其要注意的是content里多个属性的设置一定要用分号+空格来隔开，如果不规范将不会起作用。
+~~尤其要注意的是content里多个属性的设置一定要用分号+空格来隔开，如果不规范将不会起作用。~~
+
+注意根据[public_00](http://www.weibo.com/avajayam "ava")提供的资料补充，content使用分号作为分隔，在老的浏览器是支持的，但不是规范写法。
+规范的写法应该是使用逗号分隔，参考 
+<http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html>
+<http://developer.android.com/guide/webapps/targeting.html>
+
+
+
+
+
 
 其中：
 * width - viewport的宽度
