@@ -580,3 +580,8 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 ##关于ios系统中，webapp启动图片在不同设备上的适应性设置
 
 http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893
+
+##关于ios系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格(焦点科技葛亮)
+可以通过正则去掉 
+
+	this.value = this.value.replace(/\u2006/g, '');
