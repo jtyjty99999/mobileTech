@@ -599,3 +599,9 @@ http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-re
 可以通过正则去掉 
 
 	this.value = this.value.replace(/\u2006/g, '');
+	
+	
+col  | col | col
+---- | ---- | ------
+fdsa|fdasfdas|fdsafdsa|
+
