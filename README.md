@@ -76,7 +76,8 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 当你用手指拖动时，其实拖的不是页面，而是viewport。浏览器行为的改变不止是滚动条，交互事件也跟普通桌面不一样。
 (请参考：指尖的下JS 系列文章)
 
-其中viewport相关的知识也可以参考我的文章 
+*其中viewport相关的知识也可以参考我的文章*
+
 [此像素非彼像素](http://www.w3cplus.com/css/A-pixel-is-not-a-pixel-is-not-a-pixel.html "pixel")
 ##点击与click事件
 
@@ -453,6 +454,7 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 ##flexbox布局模板
 
  [flex模板](http://jsbin.com/ibuwol/2/edit "article5")
+ 
  [深入了解flex布局](http://www.w3cplus.com/blog/666.html "article6")
 
 ##active的兼容(来自薛端阳)
