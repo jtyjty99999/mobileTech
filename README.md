@@ -570,6 +570,11 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 ##禁止用户选中文字
 
 	-webkit-user-select:none
+	
+##动画效果中，使用translate比使用定位性能高
+
+<http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/>
+
 ##拿到滚动条
 
 	window.scrollY
