@@ -35,6 +35,8 @@ A useful tools or tips list for mobile web application developing
  [css3动画在线制作器](http://ecd.tencent.com/css3/tools.html "css3动画在线制作器")
  
  [css3渐变在线制作器](http://www.colorzilla.com/gradient-editor/ "css3渐变在线制作器")
+ 
+ [resize](http://lab.maltewassermann.com/viewport-resizer/ "resize")
 
 
 本资料很多引用了指尖上的js系列，在此向作者表示感谢
