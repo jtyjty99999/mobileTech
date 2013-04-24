@@ -36,7 +36,7 @@ A useful tools or tips list for mobile web application developing
  
  [css3渐变在线制作器](http://www.colorzilla.com/gradient-editor/ "css3渐变在线制作器")
  
- [resize](http://lab.maltewassermann.com/viewport-resizer/ "resize")
+ [resize添加到收藏夹后，可直接在浏览器中出现各种分辨率的选择工具来查看不同分辨率下的页面效果](http://lab.maltewassermann.com/viewport-resizer/ "resize")
 
 
 本资料很多引用了指尖上的js系列，在此向作者表示感谢
