@@ -613,13 +613,17 @@ http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-re
 ##关于android webview中，input元素输入时出现的怪异情况
 见图
 ![怪异图](http://cdn.bielousov.com/wp-content/uploads/2012/08/android-input-label-text-issue.png)
+
 Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框在输入时表现的就像占位符。情况为一个类似水印的东西在用户输入区域，一旦用户开始输入便会消失(见图片)。
 在android的默认样式下当输入框获得焦点后,若存在一个绝对定位或者fixed的元素，布局会被破坏,其他元素与系统输入字段会发生重叠(如搜索图标将消失为搜索字段),可以观察到布局与原始输入字段有偏差(见截图)。
 这是一个相当复杂的问题，以下简单布局可以重现这个问题:
+
 	<label for="phone">Phone: *</label>
 	<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
 	
 解决方法
-	-webkit-user-modify: read-write-plaintext-only;
+
+	-webkit-user-modify: read-write-plaintext-only
+	
 详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
 注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
