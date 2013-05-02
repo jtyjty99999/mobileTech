@@ -622,9 +622,4 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 解决方法
 	-webkit-user-modify: read-write-plaintext-only;
 详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
-
-
-http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893
-	
-	
-
+注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
