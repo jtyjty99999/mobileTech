@@ -38,6 +38,8 @@ A useful tools or tips list for mobile web application developing
  
  [resize添加到收藏夹后，可直接在浏览器中出现各种分辨率的选择工具来查看不同分辨率下的页面效果](http://lab.maltewassermann.com/viewport-resizer/ "resize")
 
+[移动端手势表](http://ww1.sinaimg.cn/bmiddle/c2c57f68jw1e4fh7dmw12j20fi2w6qe1.jpg "移动端手势表")
+
 一篇webapp开发的最佳实践与中文总结
 ==========
 <http://blog.forecast.io/its-not-a-web-app-its-an-app-you-install-from-the-web/>
