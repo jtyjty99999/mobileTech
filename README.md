@@ -14,6 +14,8 @@ A useful tools or tips list for mobile web application developing
  
  [几乎所有设备的屏幕尺寸与像素密度表](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density "几乎所有设备的屏幕尺寸与像素密度表")
  
+ [ios端移动设备参数速查](http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
+ 
  [浏览器兼容表](http://www.quirksmode.org/compatibility.html "浏览器兼容表")
  
  [移动设备查询器](https://deviceatlas.com/device-data/devices "移动设备查询器")
