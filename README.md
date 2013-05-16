@@ -42,6 +42,10 @@ A useful tools or tips list for mobile web application developing
 
 [移动端手势表](http://ww1.sinaimg.cn/bmiddle/c2c57f68jw1e4fh7dmw12j20fi2w6qe1.jpg "移动端手势表")
 
+
+[webkit独有的样式分析](http://ued.ctrip.com/blog/wp-content/webkitcss/ "webkit独有的样式分析")
+
+
 一篇webapp开发的最佳实践与中文总结
 ==========
 <http://blog.forecast.io/its-not-a-web-app-its-an-app-you-install-from-the-web/>
@@ -413,6 +417,22 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
 	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
  
+ 
+##利用media query监听
+
+media query相信大部分人已经使用过了。其实javascript可以配合media query这么用：
+
+	var mql = window.matchMedia("(orientation: portrait)");
+	mql.addListener(handleOrientationChange);
+	handleOrientationChange(mql); 
+	function handleOrientationChange(mql) {
+	  if (mql.matches) {
+	    alert('The device is currently in portrait orientation ')
+	  } else {
+	    alert('The device is currently in landscape orientation')
+	  }}
+
+我个人理解，是借助了media query接口做的事件监听，所以很强大！
 
 ##锁定 viewport
 
