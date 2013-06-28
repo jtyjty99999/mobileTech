@@ -183,7 +183,9 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	<style media="all and (orientation:landscape)" type="text/css">
 	#portrait { display: none; }
 	</style>
- 
+
+##手机浏览器常用手势动作监听封装(配合zepto,来自mansonchor)
+<http://wo.poco.cn/manson/post/id/268780>
 ##事件 ： (请参考：指尖的下JS 系列文章)
 
 ##手势事件
