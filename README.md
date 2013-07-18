@@ -653,3 +653,11 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 	
 详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
 注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
+
+
+##JS动态生成的select下拉菜单在Android2.x版本的默认浏览器里不起作用
+
+解决方法删除了overflow-x:hidden; 然后在JS生成下来菜单之后focus聚焦，这两步操作之后解决了问题。(来自岛都-小Qi)
+
+参考<http://stackoverflow.com/questions/4697908/html-select-control-disabled-in-android-webview-in-emulator>
+
