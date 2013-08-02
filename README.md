@@ -502,7 +502,22 @@ media query相信大部分人已经使用过了。其实javascript可以配合me
  [flex模板](http://jsbin.com/ibuwol/2/edit "article5")
  
  [深入了解flex布局](http://www.w3cplus.com/blog/666.html "article6")
+ 
+ 
+ 
+ ##利用高质量图片优化retina屏幕的显示(来自大漠)
+ 
+ 
 
+ [经典的文章](http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
+
+ [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5") 
+
+ [使用css sprites来优化你的网站在Retina屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
+  
+  [一个案例](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
+ 
+ 
 ##active的兼容(来自薛端阳)
 
 今天发现，要让a链接的Css active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
