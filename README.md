@@ -818,6 +818,9 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 4.左右滚动时，不能正确响应正文上下拉动
 
 
+iscroll的闪动问题也与渲染有关系，可以参考
+ [运用webkit绘制渲染页面原理解决iscroll4闪动的问题](http://www.iunbug.com/archives/2012/09/19/411.html "iscroll4")
+
 
 
 
