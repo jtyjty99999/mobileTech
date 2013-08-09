@@ -41,13 +41,21 @@ A useful tools or tips list for mobile web application developing
  
  [css3渐变在线制作器](http://www.colorzilla.com/gradient-editor/ "css3渐变在线制作器")
  
- [resize添加到收藏夹后，可直接在浏览器中出现各种分辨率的选择工具来查看不同分辨率下的页面效果](http://lab.maltewassermann.com/viewport-resizer/ "resize")
 
 [移动端手势表](http://ww1.sinaimg.cn/bmiddle/c2c57f68jw1e4fh7dmw12j20fi2w6qe1.jpg "移动端手势表")
 
 
 [webkit独有的样式分析](http://ued.ctrip.com/blog/wp-content/webkitcss/ "webkit独有的样式分析")
 
+
+##响应式测试工具
+
+ [resize添加到收藏夹后，可直接在浏览器中出现各种分辨率的选择工具来查看不同分辨率下的页面效果](http://lab.maltewassermann.com/viewport-resizer/ "resize")
+ [http://beta.screenqueri.es/](http://beta.screenqueri.es/ "resize")
+ [http://responsivepx.com](http://responsivepx.com "resize")
+ [http://www.responsinator.com/](http://www.responsinator.com/ "resize")
+ [http://resizemybrowser.com/](http://resizemybrowser.com/ "resize")
+  [https://quirktools.com/screenfly/](https://quirktools.com/screenfly/ "resize")
 
 一篇webapp开发的最佳实践与中文总结
 ==========
