@@ -691,3 +691,81 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 
 
 	input::-webkit-input-speech-button {display: none}
+	
+	
+	
+##移动浏览器篇
+	
+【UC浏览器】video标签脱离文档流
+
+场景：<video>标签的父元素(祖辈元素)设置transform样式后，<video>标签会脱离文档流。
+
+测试环境：UC浏览器 8.7/8.6 + Android 2.3/4.0 。
+
+Demo：<http://t.cn/zj3xiyu>
+
+解决方案：不使用transform属性。translate用top、margin等属性替代。
+
+ 
+
+【UC浏览器】video标签总在最前
+
+场景：<video>标签总是在最前（可以理解为video标签的z-index属性是Max）。
+
+测试环境：UC浏览器 8.7/8.6 + Android 2.3/4.0 。
+
+ 
+
+【UC浏览器】position:fixed 属性在UC浏览器的奇葩现象
+
+场景：设置了position: fixed 的元素会遮挡z-index值更高的同辈元素。
+
+　　　在8.6的版本,这个情况直接出现。
+
+　　　在8.7之后的版本,当同辈元素的height大于713这个「神奇」的数值时,才会被遮挡。
+
+测试环境：UC浏览器 8.8_beta/8.7/8.6 + Android 2.3/4.0 。
+
+Demo：<http://t.cn/zYLTSg6>
+
+ 
+
+【QQ手机浏览器】不支持HttpOnly
+
+场景：带有HttpOnly属性的Cookie，在QQ手机浏览器版本从4.0开始失效。JavaScript可以直接读取设置了HttpOnly的Cookie值。
+
+测试环境：QQ手机浏览器 4.0/4.1/4.2 + Android 4.0 。
+
+ 
+
+【MIUI原生浏览器】浏览器地址栏hash不改变
+
+场景：location.hash 被赋值后，地址栏的地址不会改变。
+
+　　　但实际上 location.href 已经更新了，通过JavaScript可以顺利获取到更新后的地址。
+
+　　　虽然不影响正常访问，但用户无法将访问过程中改变hash后的地址存为书签。
+
+测试环境：MIUI 4.0
+
+ 
+
+【Chrome Mobile】fixed元素无法点击
+
+ 场景：父元素设置position: fixed;
+
+　　　子元素设置position: absolute;
+
+　　　此时，如果父元素/子元素还设置了overflow: hidden 则出现“父元素遮挡该子元素“的bug。
+
+　　　视觉(view)层并没有出现遮挡，只是无法触发绑定在该子元素上的事件。可理解为：「看到点不到」。
+
+补充： 页面往下滚动，触发position: fixed;的特性时，才会出现这个bug，在最顶不会出现。
+
+测试平台： 小米1S，Android4.0的Chrome18
+
+demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
+
+解决办法： 把父元素和子元素的overflow: hidden去掉。
+
+以上来源于  <http://www.cnblogs.com/maplejan/archive/2013/04/26/3045928.html>
