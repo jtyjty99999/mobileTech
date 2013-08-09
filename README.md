@@ -771,3 +771,55 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 解决办法： 把父元素和子元素的overflow: hidden去掉。
 
 以上来源于  <http://www.cnblogs.com/maplejan/archive/2013/04/26/3045928.html>
+
+
+
+
+
+##库的使用实践
+
+#zepto.js
+
+ [zepto的一篇使用注意点讲解](http://chaoskeh.com/blog/some-experience-of-using-zepto.html "zepto")
+ 
+ [zepto的著名的tap“点透”bug](http://blog.youyo.name/archives/zepto-tap-click-through-research.html "zepto")
+
+#iscroll4
+
+ iscroll4的几个bug(来自<http://www.mansonchor.com/blog/blog_detail_64.html>内有详细讲解)
+ 
+1.滚动容器点击input框、select等表单元素时没有响应】
+
+	onBeforeScrollStart: function (e) { e.preventDefault(); }
+
+改为
+
+	onBeforeScrollStart: function (e) { var nodeType = e.explicitOriginalTarget © e.explicitOriginalTarget.nodeName.toLowerCase():(e.target © e.target.nodeName.toLowerCase():'');if(nodeType !='select'&& nodeType !='option'&& nodeType !='input'&& nodeType!='textarea') e.preventDefault(); }
+
+2.往iscroll容器内添加内容时，容器闪动的bug
+
+
+源代码的
+
+	has3d = 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()
+
+改成
+
+	has3d = false
+	
+在配置iscroll时，useTransition设置成false
+
+3.过长的滚动内容，导致卡顿和app直接闪退
+
+1)不要使用checkDOMChanges。虽然checkDOMChanges很方便，定时检测容器长度是否变化来refresh，但这也意味着你要消耗一个Interval的内存空间
+2)隐藏iscroll滚动条，配置时设置hScrollbar和vScrollbar为false。
+3)不得已的情况下，去掉各种效果，momentum、useTransform、useTransition都设置为false
+
+4.左右滚动时，不能正确响应正文上下拉动
+
+
+
+
+
+
+
