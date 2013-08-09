@@ -525,7 +525,13 @@ media query相信大部分人已经使用过了。其实javascript可以配合me
   
   [一个案例](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
  
- 
+
+##安卓中viewport的width大于device-width时文字无故折行
+
+<http://www.iunbug.com/archives/2013/04/23/798.html>
+
+
+
 ##active的兼容(来自薛端阳)
 
 今天发现，要让a链接的Css active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
