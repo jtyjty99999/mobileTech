@@ -688,6 +688,9 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 
 另外，在position:fixed后的元素里，尽量不要使用输入框。更多的bug可参考
 <http://www.cosdiv.com/page/M0/S882/882353.html>
+=======
+依旧无法解决（摩托罗拉ME863手机），则使用input:text类型而非password类型，并设置其设置  -webkit-text-security: disc; 隐藏输入密码从而解决。
+
 
 ##JS动态生成的select下拉菜单在Android2.x版本的默认浏览器里不起作用
 
