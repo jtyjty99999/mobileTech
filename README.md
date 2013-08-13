@@ -836,3 +836,25 @@ iscroll的闪动问题也与渲染有关系，可以参考
 ##移动端字体问题(待补充)
 
 <http://zhuanlan.zhihu.com/zhezhexiong/19565895>
+
+
+##跨域问题
+
+手机浏览器也是浏览器，在ajax调用外部api的时候也存在跨域问题。当然利用phonegap打包后，由于协议不一样就不存在跨域问题了。
+但页面通常是需要跟后端进行调试的。一般会报类似
+
+	XMLHttpRequest cannot load XXX
+	Origin null is not allowed by Access-Control-Allow-Origin.
+
+以及
+
+	XMLHttpRequest cannot load http://. Request header field Content-Type is not allowed by Access-Control-Allow-Headers."
+
+
+
+这时候可以让后端加上两个http头
+
+	Access-Control-Allow-Origin "*"
+	Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+
+第一个头可以避免跨域问题，第二个头可以方便ajax请求设置content-type等配置项
