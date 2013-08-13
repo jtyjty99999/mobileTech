@@ -833,5 +833,6 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 
 
+##移动端字体问题(待补充)
 
-
+<http://zhuanlan.zhihu.com/zhezhexiong/19565895>
