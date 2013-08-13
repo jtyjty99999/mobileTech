@@ -836,6 +836,10 @@ iscroll的闪动问题也与渲染有关系，可以参考
 ##移动端字体问题(待补充)
 
 <http://zhuanlan.zhihu.com/zhezhexiong/19565895>
+<http://www.sencha.com/blog/resolution-independent-mobile-ui>
+<http://stackoverflow.com/questions/12058574/pixel-density-retina-display-and-font-size-in-css>
+
+<http://bjango.com/articles/min-device-pixel-ratio/>各种ratio
 
 
 ##跨域问题
