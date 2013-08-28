@@ -794,6 +794,8 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
  [zepto的一篇使用注意点讲解](http://chaoskeh.com/blog/some-experience-of-using-zepto.html "zepto")
  
  [zepto的著名的tap“点透”bug](http://blog.youyo.name/archives/zepto-tap-click-through-research.html "zepto")
+ 
+ [zepto源码注释](http://www.cnblogs.com/sky000/archive/2013/03/29/2988952.html "zepto")
 
 #iscroll4
 
