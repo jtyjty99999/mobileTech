@@ -872,12 +872,15 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 #Should not happen: no rect-based-test nodes found 
 在android项目中的assets中的html页面中加入以下代码，便可解决问题
+
 	window,html,body{
 	    overflow-x:hidden !important;
 	    -webkit-overflow-scrolling: touch !important;
 	    overflow: scroll !important;
 	}
+	
 参考：
+
 <http://stackoverflow.com/questions/12090899/android-webview-jellybean-should-not-happen-no-rect-based-test-nodes-found>
 
 #拿联系人的时候报ContactFindOptions is not defined
@@ -886,16 +889,16 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 注意使用phonegap的api时，一定要在devicereay事件的处理函数中使用api
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-    function onDeviceReady() {    
-        callFetchContacts();
-    }
-
-function callFetchContacts(){
-    var options = new ContactFindOptions();
-    options.multiple = true;
-    var fields       = ["displayName", "name","phoneNumbers"];
-    navigator.contacts.find(fields, onSuccess, onError,options);  
-    }
+	document.addEventListener("deviceready", onDeviceReady, false);
+	
+	    function onDeviceReady() {    
+	        callFetchContacts();
+	    }
+	
+	function callFetchContacts(){
+	    var options = new ContactFindOptions();
+	    options.multiple = true;
+	    var fields       = ["displayName", "name","phoneNumbers"];
+	    navigator.contacts.find(fields, onSuccess, onError,options);  
+	    }
 
