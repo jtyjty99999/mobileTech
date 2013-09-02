@@ -707,14 +707,17 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 	
 
 ##ios输入框最佳实践
-http://stackoverflow.com/questions/11219242/mobile-friendly-input-of-a-digits-spaces-string-a-credit-card-number
 
-http://stackoverflow.com/questions/8216278/html5-input-type-number-vs-tel
+<http://stackoverflow.com/questions/11219242/mobile-friendly-input-of-a-digits-spaces-string-a-credit-card-number>
 
-http://stackoverflow.com/questions/6178556/iphone-numeric-keyboard-for-text-input
+<http://stackoverflow.com/questions/8216278/html5-input-type-number-vs-tel>
 
-https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+<http://stackoverflow.com/questions/6178556/iphone-numeric-keyboard-for-text-input>
+
+<https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html>
 	
+<http://www.miketaylr.com/code/input-type-attr.html>
+
 ##移动浏览器篇
 	
 【UC浏览器】video标签脱离文档流
