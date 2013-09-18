@@ -733,15 +733,13 @@ ip5的媒体查询
 
 使用媒体查询，提供不同的启动图片：
 
-　　<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
-
-　　<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
+	<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
+	<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
 　　
 拍照上传
 
-　　<input type=file accept="video/*">
-
-　　<input type=file accept="image/*">
+	<input type=file accept="video/*">
+	<input type=file accept="image/*">
 
 不支持其他类型的文件 ，如音频，Pages文档或PDF文件。 也没有getUserMedia摄像头的实时流媒体支持。
 
@@ -757,23 +755,23 @@ XMLHttpRequest 2 AJAX上传（甚至进度支持）
 
 在iTunes Link Maker搜索我们的应用程序和应用程序ID。
 
-　　<meta name="apple-itunes-app" content="app-id=9999999">
+	<meta name="apple-itunes-app" content="app-id=9999999">
 
 可以使用 app-argument 提供字符串值，如果参加iTunes联盟计划，可以添加元标记数据 
 
-　　<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
+	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
 
-　　<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
+	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
 
 横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。 
 
 CSS 3滤镜
 
-　　-webkit-filter: blur(5px) grayscale (.5) opacity(0.66) hue-rotate(100deg);
+	-webkit-filter: blur(5px) grayscale (.5) opacity(0.66) hue-rotate(100deg);
 
 交叉淡变
 
-　　background-image: -webkit-cross-fade(url("logo1.png"), url("logo2.png"), 50%);
+	background-image: -webkit-cross-fade(url("logo1.png"), url("logo2.png"), 50%);
 
 Safari中的全屏幕
 
@@ -783,7 +781,7 @@ Safari中的全屏幕
 
 支持image-set,retina屏幕的利器
 
-　　-webkit-image-set(url(low.png) 1x, url(hi.jpg) 2x)
+	-webkit-image-set(url(low.png) 1x, url(hi.jpg) 2x)
 
 应用程序缓存限制增加至25MB。
 
