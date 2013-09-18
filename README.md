@@ -718,6 +718,91 @@ Android web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框�
 	
 <http://www.miketaylr.com/code/input-type-attr.html>
 
+
+##ios6跟iphone5的那些事
+
+
+ip5的媒体查询
+
+　　@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+　　/* iPhone 5 or iPod Touch 5th generation */
+
+　　}
+　　
+
+使用媒体查询，提供不同的启动图片：
+
+　　<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
+
+　　<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
+　　
+拍照上传
+
+　　<input type=file accept="video/*">
+
+　　<input type=file accept="image/*">
+
+不支持其他类型的文件 ，如音频，Pages文档或PDF文件。 也没有getUserMedia摄像头的实时流媒体支持。
+
+　
+可以使用的html5高级api:
+multipart POST表单提交上传
+XMLHttpRequest 2 AJAX上传（甚至进度支持）
+文件API ，在iOS 6允许JavaScript直接读取的字节数和客户端操作文件。
+
+智能应用程序横幅
+
+有了智能应用程序横幅，当网站上有一个相关联的本机应用程序时，Safari浏览器可以显示一个横幅。 如果用户没有安装这个应用程序将显示“安装”按钮，或已经安装的显示“查看”按钮可打开它。
+
+在iTunes Link Maker搜索我们的应用程序和应用程序ID。
+
+　　<meta name="apple-itunes-app" content="app-id=9999999">
+
+可以使用 app-argument 提供字符串值，如果参加iTunes联盟计划，可以添加元标记数据 
+
+　　<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
+
+　　<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
+
+横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。 
+
+CSS 3滤镜
+
+　　-webkit-filter: blur(5px) grayscale (.5) opacity(0.66) hue-rotate(100deg);
+
+交叉淡变
+
+　　background-image: -webkit-cross-fade(url("logo1.png"), url("logo2.png"), 50%);
+
+Safari中的全屏幕
+
+　　除了chrome-less 主屏幕meta标签，现在的iPhone和iPod Touch（而不是在iPad）支持全屏幕模式的窗口。 没有办法强制全屏模式，它需要由用户启动（工具栏上的最后一个图标）。需要引导用户按下屏幕上的全屏图标来激活全屏效果。 可以使用onresize事件检测是否用户切换到全屏幕。
+
+支持requestAnimationFrameAPI
+
+支持image-set,retina屏幕的利器
+
+　　-webkit-image-set(url(low.png) 1x, url(hi.jpg) 2x)
+
+应用程序缓存限制增加至25MB。
+
+
+Web View（pseudobrowsers，PhoneGap/Cordova应用程序，嵌入式浏览器） 上Javascript运行比Safari慢3.3倍（或者说，Nitro引擎在Safari浏览器是Web应用程序是3.3倍速度）。
+
+autocomplete属性的输入遵循DOM规范
+
+来自DOM4的Mutation Observers已经实现。 您可以使用WebKitMutationObserver构造器捕获DOM的变化
+
+Safari不再总是对用 -webkit-transform:preserve-3d 的元素创建硬件加速
+
+支持window.selection 的Selection API
+
+Canvas更新 ：createImageData有一个参数，现在有两个新的功能做好准备，用webkitGetImageDataHD和webkitPutImageDataHD提供高分辨率图像 。
+
+更新SVG处理器和事件构造函数
+
+
 ##移动浏览器篇
 	
 【UC浏览器】video标签脱离文档流
