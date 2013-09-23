@@ -890,6 +890,9 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
  [zepto的著名的tap“点透”bug](http://blog.youyo.name/archives/zepto-tap-click-through-research.html "zepto")
  
  [zepto源码注释](http://www.cnblogs.com/sky000/archive/2013/03/29/2988952.html "zepto")
+ 
+#使用zeptojs内嵌到android webview影响正常滚动时
+<https://github.com/madrobby/zepto/blob/master/src/touch.js> 去掉61行,其实就是使用原生的滚动
 
 #iscroll4
 
