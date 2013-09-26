@@ -801,6 +801,14 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 更新SVG处理器和事件构造函数
 
 
+##IOS7的大更新
+
+<http://jinlong.github.io/blog/2013/09/23/safari-ios7-html5-problems-apis-review/#jtss-tsina>(张金龙翻译)
+
+[ios7的一些坑(英文)](http://www.sencha.com/blog/the-html5-scorecard-the-good-the-bad-and-the-ugly-in-ios7 "ios7的一些bug")
+
+
+
 ##移动浏览器篇
 	
 【UC浏览器】video标签脱离文档流
