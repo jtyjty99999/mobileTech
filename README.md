@@ -64,6 +64,19 @@ A useful tools or tips list for mobile web application developing
 <http://blog.forecast.io/its-not-a-web-app-its-an-app-you-install-from-the-web/>
 <http://lyric.im/best-practice-for-web-app-development/>
 
+
+来自[maxzhang](https://github.com/maxzhang "ava")的一些移动端经验总结干货
+==========
+
+[移动Web单页应用开发实践——页面结构化](https://github.com/maxzhang/maxzhang.github.com/issues/8 "ava")
+[移动Web产品前端开发口诀——“快”](https://github.com/maxzhang/maxzhang.github.com/issues/1 "ava")
+[移动Web开发，4行代码检测浏览器是否支持position:fixed](https://github.com/maxzhang/maxzhang.github.com/issues/7 "ava")
+[使用border-image实现类似iOS7的1px底边](https://github.com/maxzhang/maxzhang.github.com/issues/4 "ava")
+[移动端web页面使用position:fixed问题总结](https://github.com/maxzhang/maxzhang.github.com/issues/2 "ava")
+
+
+
+
 本资料很多引用了指尖上的js系列，在此向作者表示感谢
 ==========
 
