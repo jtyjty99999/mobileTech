@@ -69,9 +69,13 @@ A useful tools or tips list for mobile web application developing
 ==========
 
 [移动Web单页应用开发实践——页面结构化](https://github.com/maxzhang/maxzhang.github.com/issues/8 "ava")
+
 [移动Web产品前端开发口诀——“快”](https://github.com/maxzhang/maxzhang.github.com/issues/1 "ava")
+
 [移动Web开发，4行代码检测浏览器是否支持position:fixed](https://github.com/maxzhang/maxzhang.github.com/issues/7 "ava")
+
 [使用border-image实现类似iOS7的1px底边](https://github.com/maxzhang/maxzhang.github.com/issues/4 "ava")
+
 [移动端web页面使用position:fixed问题总结](https://github.com/maxzhang/maxzhang.github.com/issues/2 "ava")
 
 
@@ -528,7 +532,7 @@ media query相信大部分人已经使用过了。其实javascript可以配合me
  
  
  
- ##利用高质量图片优化retina屏幕的显示(来自大漠)
+##利用高质量图片优化retina屏幕的显示(来自大漠)
  
  
 
@@ -538,7 +542,7 @@ media query相信大部分人已经使用过了。其实javascript可以配合me
 
  [使用css sprites来优化你的网站在Retina屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
   
-  [一个案例](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
+ [一个案例](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
  
 
 ##安卓中viewport的width大于device-width时文字无故折行
@@ -958,7 +962,9 @@ iscroll的闪动问题也与渲染有关系，可以参考
 ##移动端字体问题(待补充)
 
 <http://zhuanlan.zhihu.com/zhezhexiong/19565895>
+
 <http://www.sencha.com/blog/resolution-independent-mobile-ui>
+
 <http://stackoverflow.com/questions/12058574/pixel-density-retina-display-and-font-size-in-css>
 
 <http://bjango.com/articles/min-device-pixel-ratio/>各种ratio
