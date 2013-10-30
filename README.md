@@ -679,6 +679,10 @@ Iphone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 	
 把代码放在setTimeout中，会发现程序变快.
 
+
+##android监听返回键
+<http://www.alloyteam.com/2012/10/commonly-javascript-design-patterns-flyweight/>
+
 ##关于ios系统中，webapp启动图片在不同设备上的适应性设置
 
 http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893
