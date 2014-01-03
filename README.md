@@ -959,7 +959,7 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 
 iscroll的闪动问题也与渲染有关系，可以参考
  [运用webkit绘制渲染页面原理解决iscroll4闪动的问题](http://www.iunbug.com/archives/2012/09/19/411.html "iscroll4")
-
+[iscroll4升级到5要注意的问题](http://blog.csdn.net/gcz564539969/article/details/9156141 "iscroll5")
 
 
 
