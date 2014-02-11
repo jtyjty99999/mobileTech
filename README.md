@@ -544,6 +544,12 @@ media query相信大部分人已经使用过了。其实javascript可以配合me
   
  [一个案例](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
  
+ 
+##测试是否支持svg图片
+
+
+	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
+	
 
 ##安卓中viewport的width大于device-width时文字无故折行
 
