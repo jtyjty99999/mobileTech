@@ -834,6 +834,47 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 [ios7的一些坑(英文)](http://www.sencha.com/blog/the-html5-scorecard-the-good-the-bad-and-the-ugly-in-ios7 "ios7的一些bug")
 
+[ios7的一些坑2(英文)](http://www.mobilexweb.com/blog/safari-ios7-html5-problems-apis-review "ios7的一些bug")
+
+
+
+##webview相关
+
+#Cache开启和设置
+
+	browser.getSettings().setAppCacheEnabled(true);
+	browser.getSettings().setAppCachePath("/data/data/[com.packagename]/cache");
+	browser.getSettings().setAppCacheMaxSize(5*1024*1024); // 5MB
+
+#LocalStorage相关设置
+
+	browser.getSettings().setDatabaseEnabled(true);
+	browser.getSettings().setDomStorageEnabled(true);
+	String databasePath = browser.getContext().getDir("databases", Context.MODE_PRIVATE).getPath();
+	browser.getSettings().setDatabasePath(databasePath);//Android　webview的LocalStorage有个问题，关闭APP或者重启后，就清楚了，所以需要browser.getSettings().setDatabase相关的操作，把LocalStoarge存到DB中
+ 
+	myWebView.setWebChromeClient(new WebChromeClient(){
+	　　　 @Override
+	　　　 public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater)
+	　　　 {
+	　　　　　　　 quotaUpdater.updateQuota(estimatedSize * 2);
+	　　　 }
+	}
+
+#浏览器自带缩放按钮取消显示
+
+	browser.getSettings().setBuiltInZoomControls(false);
+
+#几个比较好的实践
+
+使用localstorage缓存html
+
+使用lazyload，还要记得lazyload占位图虽然小，但是最好能提前加载到缓存
+
+延时加载执行js
+
+主要原因就在于Android Webview的onPageFinished事件，Android端一般是用这个事件来标识页面加载完成并显示的，也就是说在此之前，会一直loading，但是Android的OnPageFinished事件会在Javascript脚本执行完成之后才会触发。如果在页面中使用JQuery，会在处理完DOM对象，执行完$(document).ready(function() {});事件自会后才会渲染并显示页面。
+
 
 
 ##移动浏览器篇
