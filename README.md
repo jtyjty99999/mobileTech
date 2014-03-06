@@ -310,8 +310,39 @@ Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合
 
 <http://www.iunbug.com/archives/2013/04/23/798.html>
 
+###如何实现打开已安装的app，若未安装则引导用户安装?
 
+通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
+如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
+如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
+大概实现代码如下	
+	goToNative:function(){
+	
+		if(!body) {
+                setTimeout(function(){
+                    doc.body.appendChild(iframe);
+                }, 0);
+            } else {
+                body.appendChild(iframe);
+            }
+	
+	setTimeout(function() {
+                doc.body.removeChild(iframe);
+                gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
+                /**
+                 * 测试时间设置小于800ms时，在android下的UC浏览器会打开native app时并下载apk，
+                 * 测试android+UC下打开native的时间最好大于800ms;
+                 */
+            }, 800);
+	}
 
+			
+需要注意的是 如果是android chrome 25版本以后，在iframe src不会发送请求，
+原因如下<https://developers.google.com/chrome/mobile/docs/intents> ，通过location href使用intent机制拉起客户端可行并且当前页面不跳转。
+
+	window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
+	
 ###active的兼容(来自薛端阳)
 
 今天发现，要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
