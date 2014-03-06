@@ -312,10 +312,12 @@ Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合
 
 ###如何实现打开已安装的app，若未安装则引导用户安装?
 
+来自 <http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
 通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
 如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
 如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
 大概实现代码如下	
+
 	goToNative:function(){
 	
 		if(!body) {
