@@ -23,6 +23,7 @@ A useful tools or tips list for mobile web application developing
  
  [移动设备适配库](http://51degrees.codeplex.com/ "移动设备适配库")
  
+ [移动设备适配库2](http://detectmobilebrowsers.com/ "移动设备适配库2")
  
  [viewport与设备尺寸在线检测器](https://deviceatlas.com/device-data/devices "viewport与设备尺寸在线检测器")
  
