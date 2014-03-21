@@ -1079,6 +1079,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 第一个头可以避免跨域问题，第二个头可以方便ajax请求设置content-type等配置项
 
+这个会存在一些安全问题，可以参考这个问题的讨论 <http://www.zhihu.com/question/22992229>
 
 ##PhoneGap 部分
 
