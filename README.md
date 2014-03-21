@@ -779,6 +779,14 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 [HTML5 inputs and attribute support](http://www.miketaylr.com/code/input-type-attr.html)
 
 
+##往返缓存问题
+
+点击浏览器的回退，有时候不会自动执行js，特别是在mobilesafari中。这与**往返缓存(bfcache)**有关系。有很多hack的处理方法，可以参考
+
+<http://stackoverflow.com/questions/24046/the-safari-back-button-problem>
+
+<http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
+
 ##iOS 6 跟 iPhone 5 的那些事
 
 
@@ -799,6 +807,7 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 	<input type=file accept="image/*">
 
 不支持其他类型的文件 ，如音频，Pages文档或PDF文件。 也没有getUserMedia摄像头的实时流媒体支持。
+
 
 ###可以使用的 HTML5 高级 api
 
