@@ -47,7 +47,6 @@ A useful tools or tips list for mobile web application developing
 
 [webkit独有的样式分析](http://ued.ctrip.com/blog/wp-content/webkitcss/ "webkit独有的样式分析")
 
-
 ##响应式测试工具
 
  [resize添加到收藏夹后，可直接在浏览器中出现各种分辨率的选择工具来查看不同分辨率下的页面效果](http://lab.maltewassermann.com/viewport-resizer/ "resize")
@@ -862,3 +861,5 @@ iscroll的闪动问题也与渲染有关系，可以参考
 	Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
 
 第一个头可以避免跨域问题，第二个头可以方便ajax请求设置content-type等配置项
+
+[iOS 7 的 Safari 和 HTML5：问题，变化和新 API](http://jinlong.github.io/blog/2013/09/23/safari-ios7-html5-problems-apis-review/ "iOS 7 的 Safari 和 HTML5：问题，变化和新 API")
