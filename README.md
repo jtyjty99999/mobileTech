@@ -242,6 +242,17 @@ Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合
 也可以通过获取 CSS 值来使用 Media Query 判断设备情况，详情请看：[JavaScript 依据 CSS Media Queries 判断设备的方法](http://yujiangshui.com/use-javascript-css-media-queries-detect-device-state/)。
 
 
+###rem最佳实践
+
+rem是非常好用的一个属性，可以根据html来设定基准值，而且兼容性也很不错。不过有的时候还是需要对一些莫名其妙的浏览器优雅降级。以下是两个实践
+
+1. <http://jsbin.com/vaqexuge/4/edit>  这有个demo，发现chrome当font-size小于12时，rem会按照12来计算。因此设置基准值要考虑这一点
+2. 可以用以下的代码片段保证在低端浏览器下也不会出问题
+
+	
+	html { font-size: 62.5%; } 
+	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
  
 
 ###被点击元素的外观变化，可以使用样式来设定：
@@ -913,6 +924,13 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 延时加载执行js
 
 主要原因就在于Android Webview的onPageFinished事件，Android端一般是用这个事件来标识页面加载完成并显示的，也就是说在此之前，会一直loading，但是Android的OnPageFinished事件会在Javascript脚本执行完成之后才会触发。如果在页面中使用JQuery，会在处理完DOM对象，执行完$(document).ready(function() {});事件自会后才会渲染并显示页面。
+
+
+##移动端调适篇
+
+###修改host
+
+遇到手机无法修改host的时候可以在开发机上安装一个常驻的代理服务器软件，设置为自动启动，例如CCProxy，之后将无线设备端代理服务器设置指定到本机的代理服务器IP和端口，包括HTTP和HTTPS。此方法来自<http://yaniswang.com/frontend/2013/01/17/edit-hosts-with-mobile/>。还有一种方法就是买一个随身wifi，然后手机连接就可以了！
 
 
 
