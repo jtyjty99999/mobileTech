@@ -935,6 +935,32 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 
 ##移动浏览器篇
+
+
+###微信浏览器
+
+因为微信浏览器屏蔽了一部分链接图片，所以需要引导用户去打开新页面，可以用以下方式判断微信浏览器的ua
+
+	function is_weixn(){
+	    var ua = navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+	
+后端判断也很简单，比如php
+
+	function is_weixin(){
+	    if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+	            return true;
+	    }  
+	    return false;
+	}
+
+
+
 	
 ###【UC浏览器】video标签脱离文档流
 
