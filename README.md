@@ -1066,6 +1066,32 @@ iscroll的闪动问题也与渲染有关系，可以参考
 [iscroll4升级到5要注意的问题](http://blog.csdn.net/gcz564539969/article/details/9156141 "iscroll5")
 
 
+###iscroll或者滚动类框架滚动时不点击的方法
+
+可以使用以下的解决方案(利用data-setapi)
+
+	<a ontouchmove="this.s=1" ontouchend="this.s || window.open(this.dataset.href),this.s=0" target="_blank" data-href="http://www.hao123.com/topic/pig">黄浦江死猪之谜</a>
+
+也可以用这种方法
+
+
+		$(document).delegate('[data-target]', 'touchmove', function () {
+			$(this).attr('moving','moving');
+
+		})
+		
+
+		$(document).delegate('[data-target]', 'touchend', function () {
+			if ($(this).attr('moving') !== 'moving') {
+			 //做你想做的。。
+				$(this).attr('moving', 'notMoving');
+			} else {
+				$(this).attr('moving', 'notMoving');
+			}
+
+		})
+
+
 
 ##移动端字体问题
 
