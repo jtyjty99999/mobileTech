@@ -396,6 +396,20 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
 
+###安卓手机点击锁定页面效果问题
+
+有些安卓手机，页面点击时会停止页面的javascript，css3动画等的执行，这个比较蛋疼。不过可以用阻止默认事件解决。详细见
+<http://stackoverflow.com/questions/10246305/android-browser-touch-events-stop-display-being-updated-inc-canvas-elements-h>
+
+	function touchHandlerDummy(e)
+	{
+	    e.preventDefault();
+	    return false;
+	}
+	document.addEventListener("touchstart", touchHandlerDummy, false);
+	document.addEventListener("touchmove", touchHandlerDummy, false);
+	document.addEventListener("touchend", touchHandlerDummy, false);
+
 	
 ###消除ie10里面的那个叉号
 [IE Pseudo-elements](http://msdn.microsoft.com/en-us/library/windows/apps/hh767361.aspx "article4")
