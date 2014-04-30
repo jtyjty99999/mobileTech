@@ -1203,3 +1203,23 @@ iscroll的闪动问题也与渲染有关系，可以参考
 	    navigator.contacts.find(fields, onSuccess, onError,options);  
 	    }
 
+##调试篇
+
+###手机抓包与配host
+
+在PC上，我们可以很方便地配host，但是手机上如何配host，这是一个问题。
+
+这里主要使用fiddler和远程代理，实现手机配host的操作，具体操作如下：
+
+首先，保证PC和移动设备在同一个局域网下；
+
+PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+
+1. 首先，保证PC和移动设备在同一个局域网下；
+
+2. PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+![fiddler](https://github.com/hoosin/mobile-web-favorites/raw/master/img/01.png)
+
+3. 手机上设置代理，代理IP为PC的IP地址，端口为8888（这是fiddler的默认端口）。通常手机上可以直接设置代理，如果没有，可以去下载一个叫ProxyDroid的APP来实现代理的设置。
+
+4. 此时你会发现，用手机上网，走的其实是PC上的fiddler，所有的请求包都会在fiddler中列出来，配合willow使用，即可实现配host，甚至是反向代理的操作。
