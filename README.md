@@ -946,11 +946,33 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 ##移动端调适篇
 
-###修改host
+###手机抓包与配host
 
-遇到手机无法修改host的时候可以在开发机上安装一个常驻的代理服务器软件，设置为自动启动，例如CCProxy，之后将无线设备端代理服务器设置指定到本机的代理服务器IP和端口，包括HTTP和HTTPS。此方法来自<http://yaniswang.com/frontend/2013/01/17/edit-hosts-with-mobile/>。还有一种方法就是买一个随身wifi，然后手机连接就可以了！
+在PC上，我们可以很方便地配host，但是手机上如何配host，这是一个问题。
 
+这里主要使用fiddler和远程代理，实现手机配host的操作，具体操作如下：
 
+首先，保证PC和移动设备在同一个局域网下；
+
+PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+
+1. 首先，保证PC和移动设备在同一个局域网下；
+
+2. PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+![fiddler](https://github.com/hoosin/mobile-web-favorites/raw/master/img/01.png)
+
+3. 手机上设置代理，代理IP为PC的IP地址，端口为8888（这是fiddler的默认端口）。通常手机上可以直接设置代理，如果没有，可以去下载一个叫ProxyDroid的APP来实现代理的设置。
+
+4. 此时你会发现，用手机上网，走的其实是PC上的fiddler，所有的请求包都会在fiddler中列出来，配合willow使用，即可实现配host，甚至是反向代理的操作。
+
+也可以用CCProxy之类软件，还有一种方法就是买一个随身wifi，然后手机连接就可以了！
+
+###静态资源缓存问题
+
+一般用代理软件代理过来的静态资源可以设置nocache避免缓存，但是有的手机比较诡异，会一直缓存住css等资源文件。由于静态资源一般都是用版本号管理的，我们以charles为例子来处理这个问题
+
+charles 选择静态的html页面文件-saveResponse。之后把这个文件保存一下，修改一下版本号。之后继续发请求，
+刚才的html页面文件 右键选择 --map local 选择我们修改过版本号的html文件即ok。这其实也是fiddler远程映射并修改文件的一个应用场景。
 
 ##移动浏览器篇
 
@@ -1202,24 +1224,3 @@ iscroll的闪动问题也与渲染有关系，可以参考
 	    var fields       = ["displayName", "name","phoneNumbers"];
 	    navigator.contacts.find(fields, onSuccess, onError,options);  
 	    }
-
-##调试篇
-
-###手机抓包与配host
-
-在PC上，我们可以很方便地配host，但是手机上如何配host，这是一个问题。
-
-这里主要使用fiddler和远程代理，实现手机配host的操作，具体操作如下：
-
-首先，保证PC和移动设备在同一个局域网下；
-
-PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
-
-1. 首先，保证PC和移动设备在同一个局域网下；
-
-2. PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
-![fiddler](https://github.com/hoosin/mobile-web-favorites/raw/master/img/01.png)
-
-3. 手机上设置代理，代理IP为PC的IP地址，端口为8888（这是fiddler的默认端口）。通常手机上可以直接设置代理，如果没有，可以去下载一个叫ProxyDroid的APP来实现代理的设置。
-
-4. 此时你会发现，用手机上网，走的其实是PC上的fiddler，所有的请求包都会在fiddler中列出来，配合willow使用，即可实现配host，甚至是反向代理的操作。
