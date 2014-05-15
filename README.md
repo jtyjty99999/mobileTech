@@ -967,6 +967,15 @@ PC上开启fiddler，并在设置中勾选“allow remote computers to connect�
 
 也可以用CCProxy之类软件，还有一种方法就是买一个随身wifi，然后手机连接就可以了！
 
+###高级抓包
+
+[iPhone上使用Burp Suite捕捉HTTPS通信包方法](http://danqingdani.blog.163.com/blog/static/1860941952012112353515306/?suggestedreading&wumii "iPhone上使用Burp Suite捕捉HTTPS通信包方法")
+
+[mobile app 通信分析方法小议（iOS/Android)](http://danqingdani.blog.163.com/blog/static/1860941952012101331848980/ "mobile app 通信分析方法小议（iOS/Android)")
+
+[实时抓取移动设备上的通信包(ADVsock2pipe+Wireshark+nc+tcpdump)](http://danqingdani.blog.163.com/blog/static/1860941952012111954741585/ "实时抓取移动设备上的通信包(ADVsock2pipe+Wireshark+nc+tcpdump)")
+
+
 ###静态资源缓存问题
 
 一般用代理软件代理过来的静态资源可以设置nocache避免缓存，但是有的手机比较诡异，会一直缓存住css等资源文件。由于静态资源一般都是用版本号管理的，我们以charles为例子来处理这个问题
