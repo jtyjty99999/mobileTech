@@ -360,6 +360,8 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
 
+
+补充一个来自三水清的详细讲解 <http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
 	
 ###active的兼容(来自薛端阳)
 
