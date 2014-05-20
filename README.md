@@ -818,6 +818,12 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 
 <http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
 
+##不暂停的计时器
+
+<https://www.imququ.com/post/ios-none-freeze-timer.html> 
+还有一种利用work的方式，在写ing。。
+
+
 ##iOS 6 跟 iPhone 5 的那些事
 
 
