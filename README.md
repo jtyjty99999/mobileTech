@@ -120,6 +120,9 @@ Firefox 浏览器内置了 `自定义设计视图` 的功能，可以通过 `Fir
  
  [指尖下的js —— 多触式web前端开发之三：处理复杂手势](http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html "article3")
 
+##基础知识
+
+###meta标签
 
 meta标签，这些meta标签在开发webapp时起到非常重要的作用
 
@@ -161,385 +164,6 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 
 [此像素非彼像素](http://www.w3cplus.com/css/A-pixel-is-not-a-pixel-is-not-a-pixel.html "pixel")
 
-##移动 Web 开发经验技巧
-###点击与click事件
-
-对于a标记的点击导航，默认是在onclick事件中处理的。而移动客户端对onclick的响应相比PC浏览器有着明显的几百毫秒延迟。
-
-在移动浏览器中对触摸事件的响应顺序应当是： 
-
-	ontouchstart -> ontouchmove -> ontouchend -> onclick
-
-因此，如果确实要加快对点击事件的响应，就应当绑定ontouchend事件。
-
-使用click会出现绑定点击区域闪一下的情况，解决：给该元素一个样式如下
-
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	
-如果不使用click，也不能简单的用touchstart或touchend替代，需要用touchstart的模拟一个click事件，并且不能发生touchmove事件，或者用zepto中的tap（轻击）事件。
-
-	body
-	{
-		-webkit-overflow-scrolling: touch;
-	}
-	
-用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置 `height:200px;overflow:auto;`的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
-
-我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
-我一开始也使用，不过自从用了`-webkit-overflow-scrolling: touch;`样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
-
-###页面描述
-
-
-	<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
-	
-
-这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
-
-	<link rel="apple-touch-startup-image" href="/img/startup.png" />
-	
-这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
-
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	
-这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明请参照：[Safari HTML Reference - Supported Meta Tags](https://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)
-
-	<meta name="apple-touch-fullscreen" content="yes" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
- 
-
-这两个描述也很有用的，如果没有它，你的web app会用safari浏览器打开，有了它，就会用独立进程的无地址栏的打开，完全可以和普通的APP比拟了
-
-下面还有个不错的css，是用来区分视网膜屏幕的，这样你可以在iphone这样的手机里载入2x的图片，就不会模糊了
-
-	@media only screen and (-webkit-min-device-pixel-ratio:1.5),
-	only screen and (min--moz-device-pixel-ratio:1.5),
-	only screen and (min-device-pixel-ratio:1.5),
-	only screen and (min-resolution:200dpi)
-	{
-		#logo{background-image: url(logo@2x.png);}
-	}
-
-###锁定 viewport
-
-	ontouchmove="event.preventDefault()" //锁定viewport，任何屏幕操作不移动用户界面（弹出键盘除外）。
-
-
-###利用 Media Query监听
-
-Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合 Media Query这么用：
-
-	var mql = window.matchMedia("(orientation: portrait)");
-	mql.addListener(handleOrientationChange);
-	handleOrientationChange(mql); 
-	function handleOrientationChange(mql) {
-	  if (mql.matches) {
-	    alert('The device is currently in portrait orientation ')
-	  } else {
-	    alert('The device is currently in landscape orientation')
-	  }}
-
-借助了 Media Query 接口做的事件监听，所以很强大！
-
-也可以通过获取 CSS 值来使用 Media Query 判断设备情况，详情请看：[JavaScript 依据 CSS Media Queries 判断设备的方法](http://yujiangshui.com/use-javascript-css-media-queries-detect-device-state/)。
-
-
-###rem最佳实践
-
-rem是非常好用的一个属性，可以根据html来设定基准值，而且兼容性也很不错。不过有的时候还是需要对一些莫名其妙的浏览器优雅降级。以下是两个实践
-
-1. <http://jsbin.com/vaqexuge/4/edit>  这有个demo，发现chrome当font-size小于12时，rem会按照12来计算。因此设置基准值要考虑这一点
-2. 可以用以下的代码片段保证在低端浏览器下也不会出问题
-
-	
-	html { font-size: 62.5%; } 
-	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
-	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
- 
-
-###被点击元素的外观变化，可以使用样式来设定：
-
-	-webkit-tap-highlight-color: 颜色
- 
-
-###检测判断 iPhone/iPod
-开发特定设备的移动网站，首先要做的就是设备侦测了。下面是使用Javascript侦测iPhone/iPod的UA，然后转向到专属的URL。
-
-	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-	　　if (document.cookie.indexOf("iphone_redirect=false") == -1) {
-	　　　　window.location = "http://m.example.com";
-	　　}
-	}
- 
-
-虽然Javascript是可以在水果设备上运行的，但是用户还是可以禁用。它也会造成客户端刷新和额外的数据传输，所以下面是服务器端侦测和转向：
-
-	if(strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-	　　header('Location: http://yoursite.com/iphone');
-	　　exit();
-	}
-###阻止旋转屏幕时自动调整字体大小
-
-	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
- 
-
-###模拟:hover伪类
-因为iPhone并没有鼠标指针，所以没有hover事件。那么CSS :hover伪类就没用了。但是iPhone有Touch事件，onTouchStart 类似 onMouseOver，onTouchEnd 类似 onMouseOut。所以我们可以用它来模拟hover。使用Javascript：
-
-	var myLinks = document.getElementsByTagName('a');
-	for(var i = 0; i < myLinks.length; i++){
-	　　myLinks[i].addEventListener(’touchstart’, function(){this.className = “hover”;}, false);
-	　　myLinks[i].addEventListener(’touchend’, function(){this.className = “”;}, false);
-	}
-然后用CSS增加hover效果：
-
-	a:hover, a.hover { /* 你的hover效果 */ }
-
-这样设计一个链接，感觉可以更像按钮。并且，这个模拟可以用在任何元素上。
-
-###Flexbox 布局
-
- [Flex 模板和实例](http://jsbin.com/ibuwol/2/edit "article5")
- 
- [深入了解 Flexbox 伸缩盒模型](http://www.w3cplus.com/blog/666.html "article6")
- 
- [CSS Flexbox Intro](http://yehao.diandian.com/post/2013-09-15/40052216426)
-
-<http://www.w3.org/TR/css3-flexbox/>
- 
-###处理 Retina 双倍屏幕
- 
- 
-
- [（经典）Using CSS Sprites to optimize your website for Retina Displays](http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
-
- [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5") 
-
- [使用 CSS sprites 来优化你的网站在 Retina 屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
-  
- [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
- 
-
-###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
-
-<http://www.iunbug.com/archives/2013/04/23/798.html>
-
-###如何实现打开已安装的app，若未安装则引导用户安装?
-
-来自 <http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
-通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
-如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
-如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
-大概实现代码如下	
-
-	goToNative:function(){
-	
-		if(!body) {
-                setTimeout(function(){
-                    doc.body.appendChild(iframe);
-                }, 0);
-            } else {
-                body.appendChild(iframe);
-            }
-	
-	setTimeout(function() {
-                doc.body.removeChild(iframe);
-                gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
-                /**
-                 * 测试时间设置小于800ms时，在android下的UC浏览器会打开native app时并下载apk，
-                 * 测试android+UC下打开native的时间最好大于800ms;
-                 */
-            }, 800);
-	}
-
-			
-需要注意的是 如果是android chrome 25版本以后，在iframe src不会发送请求，
-原因如下<https://developers.google.com/chrome/mobile/docs/intents> ，通过location href使用intent机制拉起客户端可行并且当前页面不跳转。
-
-	window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
-
-
-补充一个来自三水清的详细讲解 <http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
-	
-###active的兼容(来自薛端阳)
-
-今天发现，要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
-
-	<style>
-	a {
-	color: #000;
-	}
-	a:active {
-	color: #fff;
-	}
-	</style>
-	<a herf=”asdasd”>asdasd</a>
-	<script>
-	var a=document.getElementsByTagName(‘a’);
-	for(var i=0;i<a.length;i++){
-	a[i].addEventListener(‘touchstart’,function(){},false);
-	}
-	</script>
-
-###消除transition闪屏
-
-
-两个方法：使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。动画过程中的动画闪白可以通过 backface-visibility 隐藏。
-
-	-webkit-transform-style: preserve-3d;
-	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
-	-webkit-backface-visibility: hidden;
-	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
-
- 
-###测试是否支持svg图片
-
-	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
-
-###安卓手机点击锁定页面效果问题
-
-有些安卓手机，页面点击时会停止页面的javascript，css3动画等的执行，这个比较蛋疼。不过可以用阻止默认事件解决。详细见
-<http://stackoverflow.com/questions/10246305/android-browser-touch-events-stop-display-being-updated-inc-canvas-elements-h>
-
-	function touchHandlerDummy(e)
-	{
-	    e.preventDefault();
-	    return false;
-	}
-	document.addEventListener("touchstart", touchHandlerDummy, false);
-	document.addEventListener("touchmove", touchHandlerDummy, false);
-	document.addEventListener("touchend", touchHandlerDummy, false);
-
-	
-###消除ie10里面的那个叉号
-[IE Pseudo-elements](http://msdn.microsoft.com/en-us/library/windows/apps/hh767361.aspx "article4")
-
-	input:-ms-clear{display:none;}
-	
-###关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
-[mac下网页中文字体优化](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
-
-[UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
- 
-
-###隐藏地址栏 & 处理事件的时候，防止滚动条出现：
-
-	// 隐藏地址栏  & 处理事件的时候 ，防止滚动条出现
-	addEventListener('load', function(){
-			setTimeout(function(){ window.scrollTo(0, 1); }, 100);
-	});
-
-###判断是否为iPhone：
-
-	// 判断是否为 iPhone ：
-	function isAppleMobile() {
-		return (navigator.platform.indexOf('iPad') != -1);
-	};
-###localStorage:
-
-	var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";   // 如果名称是  n 的数据存在 ，则将其读出 ，赋予变量  v  。
-	localStorage.setItem('n', v);                                           // 写入名称为 n、值为  v  的数据
-	localStorage.removeItem('n');                                           // 删除名称为  n  的数据
-###使用特殊链接：
-如果你关闭自动识别后 ，又希望某些电话号码能够链接到 iPhone 的拨号功能 ，那么可以通过这样来声明电话链接 ,
-
-	<a href="tel:12345654321">打电话给我</a>
-	<a href="sms:12345654321">发短信</a>
-或用于单元格：
-
-	<td onclick="location.href='tel:122'">
-
-###自动大写与自动修正
-要关闭这两项功能，可以通过autocapitalize 与autocorrect 这两个选项：
-
-	<input type="text" autocapitalize="off" autocorrect="off" />
- 
-
-###不让 Android 识别邮箱
-
-	<meta content="email=no" name="format-detection" />
-	
-###禁止 iOS 弹出各种操作窗口
-
-	-webkit-touch-callout:none
-###禁止用户选中文字
-
-	-webkit-user-select:none
-	
-###动画效果中，使用 translate 比使用定位性能高
-
-[Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
-
-###拿到滚动条
-
-	window.scrollY
-	window.scrollX
- 
- 比如要绑定一个touchmove的事件，正常的情况下类似这样(来自呼吸二氧化碳)
- 
-	$('div').on('touchmove', function(){
-	//.….code
-	{});
-	
-而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
-
-	$('div').on('touchmove', function(){
-	setTimeout(function(){
-	//.….code
-	},0);
-	{});
-	
-把代码放在setTimeout中，会发现程序变快.
-
-###关于 iOS 系统中，Web APP 启动图片在不同设备上的适应性设置
-
-<http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893>
-
-###关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
-可以通过正则去掉 
-
-	this.value = this.value.replace(/\u2006/g, '');
-
-###关于android webview中，input元素输入时出现的怪异情况
-见下图
-
-![怪异图](http://cdn.bielousov.com/wp-content/uploads/2012/08/android-input-label-text-issue.png)
-
-Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输入框在输入时表现的就像占位符。情况为一个类似水印的东西在用户输入区域，一旦用户开始输入便会消失(见图片)。
-
-在 Android 的默认样式下当输入框获得焦点后，若存在一个绝对定位或者 fixed 的元素，布局会被破坏，其他元素与系统输入字段会发生重叠(如搜索图标将消失为搜索字段)，可以观察到布局与原始输入字段有偏差(见截图)。
-
-这是一个相当复杂的问题，以下简单布局可以重现这个问题:
-
-	<label for="phone">Phone: *</label>
-	<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
-	
-解决方法
-
-	-webkit-user-modify: read-write-plaintext-only
-	
-详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
-注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
-
-另外，在position:fixed后的元素里，尽量不要使用输入框。更多的bug可参考
-<http://www.cosdiv.com/page/M0/S882/882353.html>
-
-依旧无法解决（摩托罗拉ME863手机），则使用input:text类型而非password类型，并设置其设置  -webkit-text-security: disc; 隐藏输入密码从而解决。
-
-
-###JS动态生成的select下拉菜单在Android2.x版本的默认浏览器里不起作用
-
-解决方法删除了overflow-x:hidden; 然后在JS生成下来菜单之后focus聚焦，这两步操作之后解决了问题。(来自岛都-小Qi)
-
-参考<http://stackoverflow.com/questions/4697908/html-select-control-disabled-in-android-webview-in-emulator>
-
-###Andriod 上去掉语音输入按钮
-
-
-	input::-webkit-input-speech-button {display: none}
-	
 ##移动开发事件
 
 [手机浏览器常用手势动作监听封装](http://wo.poco.cn/manson/post/id/268780)
@@ -759,6 +383,27 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
 	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
  
+###页面描述
+
+
+	<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
+	
+
+这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
+
+	<link rel="apple-touch-startup-image" href="/img/startup.png" />
+	
+这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	
+这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明请参照：[Safari HTML Reference - Supported Meta Tags](https://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)
+
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
 	
 ##常见的 iPhone 和 Android 屏幕参数。
 
@@ -792,6 +437,411 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 			background:url(hdpi/bg.png);
 		}
 	}
+
+
+
+##移动 Web 开发经验技巧
+
+
+###点击与click事件
+
+对于a标记的点击导航，默认是在onclick事件中处理的。而移动客户端对onclick的响应相比PC浏览器有着明显的几百毫秒延迟。
+
+在移动浏览器中对触摸事件的响应顺序应当是： 
+
+	ontouchstart -> ontouchmove -> ontouchend -> onclick
+
+因此，如果确实要加快对点击事件的响应，就应当绑定ontouchend事件。
+
+使用click会出现绑定点击区域闪一下的情况，解决：给该元素一个样式如下
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+如果不使用click，也不能简单的用touchstart或touchend替代，需要用touchstart的模拟一个click事件，并且不能发生touchmove事件，或者用zepto中的tap（轻击）事件。
+
+	body
+	{
+		-webkit-overflow-scrolling: touch;
+	}
+	
+用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置 `height:200px;overflow:auto;`的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
+
+我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
+我一开始也使用，不过自从用了`-webkit-overflow-scrolling: touch;`样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
+
+
+
+###锁定 viewport
+
+	ontouchmove="event.preventDefault()" //锁定viewport，任何屏幕操作不移动用户界面（弹出键盘除外）。
+
+
+###利用 Media Query监听
+
+Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合 Media Query这么用：
+
+	var mql = window.matchMedia("(orientation: portrait)");
+	mql.addListener(handleOrientationChange);
+	handleOrientationChange(mql); 
+	function handleOrientationChange(mql) {
+	  if (mql.matches) {
+	    alert('The device is currently in portrait orientation ')
+	  } else {
+	    alert('The device is currently in landscape orientation')
+	  }}
+
+借助了 Media Query 接口做的事件监听，所以很强大！
+
+也可以通过获取 CSS 值来使用 Media Query 判断设备情况，详情请看：[JavaScript 依据 CSS Media Queries 判断设备的方法](http://yujiangshui.com/use-javascript-css-media-queries-detect-device-state/)。
+
+
+###rem最佳实践
+
+rem是非常好用的一个属性，可以根据html来设定基准值，而且兼容性也很不错。不过有的时候还是需要对一些莫名其妙的浏览器优雅降级。以下是两个实践
+
+1. <http://jsbin.com/vaqexuge/4/edit>  这有个demo，发现chrome当font-size小于12时，rem会按照12来计算。因此设置基准值要考虑这一点
+2. 可以用以下的代码片段保证在低端浏览器下也不会出问题
+
+	
+	html { font-size: 62.5%; } 
+	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+ 
+
+###被点击元素的外观变化，可以使用样式来设定：
+
+	-webkit-tap-highlight-color: 颜色
+ 
+
+###检测判断 iPhone/iPod
+开发特定设备的移动网站，首先要做的就是设备侦测了。下面是使用Javascript侦测iPhone/iPod的UA，然后转向到专属的URL。
+
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	　　if (document.cookie.indexOf("iphone_redirect=false") == -1) {
+	　　　　window.location = "http://m.example.com";
+	　　}
+	}
+ 
+
+虽然Javascript是可以在水果设备上运行的，但是用户还是可以禁用。它也会造成客户端刷新和额外的数据传输，所以下面是服务器端侦测和转向：
+
+	if(strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+	　　header('Location: http://yoursite.com/iphone');
+	　　exit();
+	}
+###阻止旋转屏幕时自动调整字体大小
+
+	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+ 
+
+###模拟:hover伪类
+因为iPhone并没有鼠标指针，所以没有hover事件。那么CSS :hover伪类就没用了。但是iPhone有Touch事件，onTouchStart 类似 onMouseOver，onTouchEnd 类似 onMouseOut。所以我们可以用它来模拟hover。使用Javascript：
+
+	var myLinks = document.getElementsByTagName('a');
+	for(var i = 0; i < myLinks.length; i++){
+	　　myLinks[i].addEventListener(’touchstart’, function(){this.className = “hover”;}, false);
+	　　myLinks[i].addEventListener(’touchend’, function(){this.className = “”;}, false);
+	}
+然后用CSS增加hover效果：
+
+	a:hover, a.hover { /* 你的hover效果 */ }
+
+这样设计一个链接，感觉可以更像按钮。并且，这个模拟可以用在任何元素上。
+
+###Flexbox 布局
+
+ [Flex 模板和实例](http://jsbin.com/ibuwol/2/edit "article5")
+ 
+ [深入了解 Flexbox 伸缩盒模型](http://www.w3cplus.com/blog/666.html "article6")
+ 
+ [CSS Flexbox Intro](http://yehao.diandian.com/post/2013-09-15/40052216426)
+
+<http://www.w3.org/TR/css3-flexbox/>
+
+
+
+###居中问题
+
+居中是移动端跟pc端共同的噩梦。这里有两种兼容性比较好的新方案。
+
+
+- table布局法
+
+	.box{
+	  text-align:center; 
+	  display:table-cell;
+	  vertical-align:middle;
+	}
+
+- 老版本flex布局法
+
+	.box{
+	  display:-webkit-box;
+	  -webkit-box-pack: center;
+	  -webkit-box-align: center; 
+	  text-align:center;
+	}
+
+以上两种其实分别是retchat跟ionic的布局基石。
+
+这里有更详细的更多的选择<http://www.zhouwenbin.com/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/> 来自周文彬的博客
+
+ 
+###处理 Retina 双倍屏幕
+ 
+ 
+
+ [（经典）Using CSS Sprites to optimize your website for Retina Displays](http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
+
+ [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5") 
+
+ [使用 CSS sprites 来优化你的网站在 Retina 屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
+  
+ [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
+ 
+###input类型为date情况下不支持placeholder（来自于江水）
+
+这其实是浏览器自己的处理。因为浏览器会针对此类型 input 增加 datepicker 模块。
+
+对 input type date 使用 placeholder 的目的是为了让用户更准确的输入日期格式，iOS 上会有 datepicker 不会显示 placeholder 文字，但是为了统一表单外观，往往需要显示。Android 部分机型没有 datepicker 也不会显示 placeholder 文字。
+ 
+
+桌面端（Mac）
+
+ - Safari 不支持 datepicker，placeholder 正常显示。
+ - Firefox 不支持 datepicker，placeholder 正常显示。
+ - Chrome 支持 datepicker，显示 年、月、日 格式，忽略 placeholder。
+
+移动端
+ 
+ - iPhone5 iOS7 有 datepicker 功能，但是不显示 placeholder。
+ - Andorid 4.0.4 无 datepicker 功能，不显示 placeholder
+
+解决方法：
+
+	<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
+	
+因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
+
+
+###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
+
+<http://www.iunbug.com/archives/2013/04/23/798.html>
+
+###如何实现打开已安装的app，若未安装则引导用户安装?
+
+来自 <http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
+通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
+如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
+如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
+大概实现代码如下	
+
+	goToNative:function(){
+	
+		if(!body) {
+                setTimeout(function(){
+                    doc.body.appendChild(iframe);
+                }, 0);
+            } else {
+                body.appendChild(iframe);
+            }
+	
+	setTimeout(function() {
+                doc.body.removeChild(iframe);
+                gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
+                /**
+                 * 测试时间设置小于800ms时，在android下的UC浏览器会打开native app时并下载apk，
+                 * 测试android+UC下打开native的时间最好大于800ms;
+                 */
+            }, 800);
+	}
+
+			
+需要注意的是 如果是android chrome 25版本以后，在iframe src不会发送请求，
+原因如下<https://developers.google.com/chrome/mobile/docs/intents> ，通过location href使用intent机制拉起客户端可行并且当前页面不跳转。
+
+	window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
+
+补充一个来自三水清的详细讲解 <http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
+	
+###active的兼容(来自薛端阳)
+
+今天发现，要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
+
+	<style>
+	a {
+	color: #000;
+	}
+	a:active {
+	color: #fff;
+	}
+	</style>
+	<a herf=”asdasd”>asdasd</a>
+	<script>
+	var a=document.getElementsByTagName(‘a’);
+	for(var i=0;i<a.length;i++){
+	a[i].addEventListener(‘touchstart’,function(){},false);
+	}
+	</script>
+
+###消除transition闪屏
+
+
+两个方法：使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。动画过程中的动画闪白可以通过 backface-visibility 隐藏。
+
+	-webkit-transform-style: preserve-3d;
+	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+	-webkit-backface-visibility: hidden;
+	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+
+ 
+###测试是否支持svg图片
+
+	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
+
+###安卓手机点击锁定页面效果问题
+
+有些安卓手机，页面点击时会停止页面的javascript，css3动画等的执行，这个比较蛋疼。不过可以用阻止默认事件解决。详细见
+<http://stackoverflow.com/questions/10246305/android-browser-touch-events-stop-display-being-updated-inc-canvas-elements-h>
+
+	function touchHandlerDummy(e)
+	{
+	    e.preventDefault();
+	    return false;
+	}
+	document.addEventListener("touchstart", touchHandlerDummy, false);
+	document.addEventListener("touchmove", touchHandlerDummy, false);
+	document.addEventListener("touchend", touchHandlerDummy, false);
+
+	
+###消除ie10里面的那个叉号
+[IE Pseudo-elements](http://msdn.microsoft.com/en-us/library/windows/apps/hh767361.aspx "article4")
+
+	input:-ms-clear{display:none;}
+	
+###关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
+[mac下网页中文字体优化](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
+
+[UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
+ 
+
+###隐藏地址栏 & 处理事件的时候，防止滚动条出现：
+
+	// 隐藏地址栏  & 处理事件的时候 ，防止滚动条出现
+	addEventListener('load', function(){
+			setTimeout(function(){ window.scrollTo(0, 1); }, 100);
+	});
+
+###判断是否为iPhone：
+
+	// 判断是否为 iPhone ：
+	function isAppleMobile() {
+		return (navigator.platform.indexOf('iPad') != -1);
+	};
+###localStorage:
+
+	var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";   // 如果名称是  n 的数据存在 ，则将其读出 ，赋予变量  v  。
+	localStorage.setItem('n', v);                                           // 写入名称为 n、值为  v  的数据
+	localStorage.removeItem('n');                                           // 删除名称为  n  的数据
+###使用特殊链接：
+如果你关闭自动识别后 ，又希望某些电话号码能够链接到 iPhone 的拨号功能 ，那么可以通过这样来声明电话链接 ,
+
+	<a href="tel:12345654321">打电话给我</a>
+	<a href="sms:12345654321">发短信</a>
+或用于单元格：
+
+	<td onclick="location.href='tel:122'">
+
+###自动大写与自动修正
+要关闭这两项功能，可以通过autocapitalize 与autocorrect 这两个选项：
+
+	<input type="text" autocapitalize="off" autocorrect="off" />
+ 
+
+###不让 Android 识别邮箱
+
+	<meta content="email=no" name="format-detection" />
+	
+###禁止 iOS 弹出各种操作窗口
+
+	-webkit-touch-callout:none
+###禁止用户选中文字
+
+	-webkit-user-select:none
+	
+###动画效果中，使用 translate 比使用定位性能高
+
+[Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
+
+###拿到滚动条
+
+	window.scrollY
+	window.scrollX
+ 
+ 比如要绑定一个touchmove的事件，正常的情况下类似这样(来自呼吸二氧化碳)
+ 
+	$('div').on('touchmove', function(){
+	//.….code
+	{});
+	
+而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
+
+	$('div').on('touchmove', function(){
+	setTimeout(function(){
+	//.….code
+	},0);
+	{});
+	
+把代码放在setTimeout中，会发现程序变快.
+
+###关于 iOS 系统中，Web APP 启动图片在不同设备上的适应性设置
+
+<http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893>
+
+###关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
+可以通过正则去掉 
+
+	this.value = this.value.replace(/\u2006/g, '');
+
+###关于android webview中，input元素输入时出现的怪异情况
+见下图
+
+![怪异图](http://cdn.bielousov.com/wp-content/uploads/2012/08/android-input-label-text-issue.png)
+
+Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输入框在输入时表现的就像占位符。情况为一个类似水印的东西在用户输入区域，一旦用户开始输入便会消失(见图片)。
+
+在 Android 的默认样式下当输入框获得焦点后，若存在一个绝对定位或者 fixed 的元素，布局会被破坏，其他元素与系统输入字段会发生重叠(如搜索图标将消失为搜索字段)，可以观察到布局与原始输入字段有偏差(见截图)。
+
+这是一个相当复杂的问题，以下简单布局可以重现这个问题:
+
+	<label for="phone">Phone: *</label>
+	<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
+	
+解决方法
+
+	-webkit-user-modify: read-write-plaintext-only
+	
+详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
+注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
+
+另外，在position:fixed后的元素里，尽量不要使用输入框。更多的bug可参考
+<http://www.cosdiv.com/page/M0/S882/882353.html>
+
+依旧无法解决（摩托罗拉ME863手机），则使用input:text类型而非password类型，并设置其设置  -webkit-text-security: disc; 隐藏输入密码从而解决。
+
+
+###JS动态生成的select下拉菜单在Android2.x版本的默认浏览器里不起作用
+
+解决方法删除了overflow-x:hidden; 然后在JS生成下来菜单之后focus聚焦，这两步操作之后解决了问题。(来自岛都-小Qi)
+
+参考<http://stackoverflow.com/questions/4697908/html-select-control-disabled-in-android-webview-in-emulator>
+
+###Andriod 上去掉语音输入按钮
+
+
+	input::-webkit-input-speech-button {display: none}
+	
 	
 ##IE10 的特殊鼠标事件
 
@@ -822,6 +872,39 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 
 <https://www.imququ.com/post/ios-none-freeze-timer.html> 
 还有一种利用work的方式，在写ing。。
+
+##如何让音频跟视频在ios跟android上自动播放
+
+	<audio autoplay ><source  src="audio/alarm1.mp3" type="audio/mpeg"></audio>
+
+系统默认情况下 audio的autoplay属性是无法生效的，这也是手机为节省用户流量做的考虑。
+如果必须要自动播放，有两种方式可以解决。
+
+1.捕捉一次用户输入后，让音频加载，下次即可播放。
+
+	//play and pause it once
+	document.addEventListener('touchstart', function () {
+	    document.getElementsByTagName('audio')[0].play();
+	    document.getElementsByTagName('audio')[0].pause();
+	});
+
+这种方法需要捕获一次用户的点击事件来促使音频跟视频加载。当加载后，你就可以用javascript控制音频的播放了，如调用audio.play()
+
+2.利用iframe加载资源
+
+	var ifr=document.createElement("iframe");
+	ifr.setAttribute('src', "http://mysite.com/myvideo.mp4");
+	ifr.setAttribute('width', '1px');
+	ifr.setAttribute('height', '1px');
+	ifr.setAttribute('scrolling', 'no');
+	ifr.style.border="0px";
+	document.body.appendChild(ifr);
+
+这种方式其实跟第一种原理是一样的。当资源加载了你就可以控制播放了，但是这里使用iframe来加载，相当于直接触发资源加载。
+注意，使用创建audio标签并让其加载的方式是不可行的。
+慎用这种方法，会对用户造成很糟糕的影响。。
+
+
 
 
 ##iOS 6 跟 iPhone 5 的那些事
