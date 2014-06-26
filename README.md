@@ -799,6 +799,10 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 <http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893>
 
+###position:sticky与position:fixed布局
+<http://www.zhouwenbin.com/positionsticky-%E7%B2%98%E6%80%A7%E5%B8%83%E5%B1%80/>
+<http://www.zhouwenbin.com/sticky%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/>
+
 ###关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
 可以通过正则去掉 
 
