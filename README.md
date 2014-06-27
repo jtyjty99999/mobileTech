@@ -699,6 +699,35 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 ###测试是否支持svg图片
 
 	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
+	
+	
+##考虑兼容“隐私模式”(from <http://blog.youyo.name/archives/smarty-phones-webapp-deverlop-advance.html>)
+ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这个模式，那么在使用html5的本地存储的一种————localStorage时，可能因为“隐私模式”下没有权限读写localstorge而使代码抛出错误，导致后续的js代码都无法运行了。
+
+既然在safari的“隐私模式”下，没有调用localStorage的权限，首先想到的是先判断是否支持localStorage，代码如下：
+
+	if('localStorage' in window){
+	    //需要使用localStorage的代码写在这
+	}else{
+	    //不支持的提示和向下兼容代码
+	}
+	
+测试发现，即使在safari的“隐私模式”下，’localStorage’ in window的返回值依然为true，也就是说，if代码块内部的代码依然会运行，问题没有得到解决。
+接下来只能相当使用try catch了，虽然这是一个不太推荐被使用的方法，使用try catch捕获错误，使后续的js代码可以继续运行，代码如下：
+
+	try{
+	    if('localStorage' in window){
+	         //需要使用localStorage的代码写在这
+	    }else{
+	         //不支持的提示和向下兼容代码
+	    }
+	}catch(e){
+	    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
+	}
+	
+所以，提醒大家注意，在需要兼容ios的safari的“隐私模式”的情况下，本地存储相关的代码需要使用try catch包裹并降级兼容。
+
+
 
 ###安卓手机点击锁定页面效果问题
 
@@ -726,6 +755,11 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 [UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
  
 
+##判断用户是否是“将网页添加到主屏后，再从主屏幕打开这个网页”的
+
+	navigator.standalone
+
+
 ###隐藏地址栏 & 处理事件的时候，防止滚动条出现：
 
 	// 隐藏地址栏  & 处理事件的时候 ，防止滚动条出现
@@ -743,7 +777,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";   // 如果名称是  n 的数据存在 ，则将其读出 ，赋予变量  v  。
 	localStorage.setItem('n', v);                                           // 写入名称为 n、值为  v  的数据
-	localStorage.removeItem('n');                                           // 删除名称为  n  的数据
+	localStorage.removeItem('n');        // 删除名称为  n  的数据
 ###使用特殊链接：
 如果你关闭自动识别后 ，又希望某些电话号码能够链接到 iPhone 的拨号功能 ，那么可以通过这样来声明电话链接 ,
 
