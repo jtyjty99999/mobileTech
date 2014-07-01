@@ -1331,6 +1331,8 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 ##PhoneGap 部分
 
+<http://snoopyxdy.blog.163.com/blog/static/60117440201432491123551> 这里有一大堆snoopy总结的phonggap开发坑
+
 ###Should not happen: no rect-based-test nodes found 
 在 Android 项目中的 assets 中的 HTML 页面中加入以下代码，便可解决问题
 
