@@ -808,6 +808,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 
 [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
 
+
 ###拿到滚动条
 
 	window.scrollY
@@ -1072,6 +1073,10 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 主要原因就在于Android Webview的onPageFinished事件，Android端一般是用这个事件来标识页面加载完成并显示的，也就是说在此之前，会一直loading，但是Android的OnPageFinished事件会在Javascript脚本执行完成之后才会触发。如果在页面中使用JQuery，会在处理完DOM对象，执行完$(document).ready(function() {});事件自会后才会渲染并显示页面。
 
+###manifest与缓存相关:
+<http://www.alloyteam.com/2013/12/web-cache-6-hybrid-app-tailored-cache/>
+相关解决方案
+<http://mt.tencent.com/>
 
 ##移动端调适篇
 
