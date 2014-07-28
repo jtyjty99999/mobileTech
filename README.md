@@ -624,6 +624,25 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
 
+###判断照片的横竖排列
+
+有这样一种需求，需要判断用户照片是横着拍出来的还是竖着拍出来的，这里需要使用照片得exif信息：
+
+	$("input").change(function() {
+	    var file = this.files[0];
+	    fr   = new FileReader;
+	
+	    fr.onloadend = function() {
+	        var exif = EXIF.readFromBinaryFile(new BinaryFile(this.result));
+	        alert(exif.Orientation);
+	    };
+	
+	    fr.readAsBinaryString(file);
+	});
+	
+可以使用这两个库 来取exif信息<http://www.nihilogic.dk/labs/binaryajax/binaryajax.js> <http://www.nihilogic.dk/labs/exif/exif.js>
+
+
 ###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
 
 <http://www.iunbug.com/archives/2013/04/23/798.html>
