@@ -926,10 +926,37 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 <http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
 
-##不暂停的计时器
+
+##不暂停的计时器（safari的进程冻结）
 
 <https://www.imququ.com/post/ios-none-freeze-timer.html> 
-还有一种利用work的方式，在写ing。。
+或者可以用postmessage方式:
+
+        // 解决ios safari tab在后台会遭遇进程冻结问题
+        // http://www.apple.com/safari/#gallery-icloud-tabs
+        // Safari takes advantage of power-saving technologies such as App Nap, which puts background Safari tabs into a low-power state until you start using them again. In addition, Safari Power Saver conserves battery life by intelligently pausing web videos and other plug‑in content when they’re not front and center on the web pages you visit. All told, Safari on OS X Mavericks lets you browse up to an hour longer than with Chrome or Firefox.1
+        var work;
+        function startWorker() {
+            if (typeof(Worker) !== "undefined") {
+                if (typeof(work) == "undefined") {
+                    work = new Worker("/workers.js");
+                }
+                work.onmessage = function(event) {
+                    // document.getElementById("result-count").innerHTML = event.data.count;
+                    // document.getElementById("result-url").innerHTML = event.data.targetURL;
+                    if (target && event.data.targetURL != "") target.location.href = event.data.targetURL;
+                };
+            } else {
+                console.log('does not support Web Workers...');
+            }
+        }
+
+        function stopWorker() {
+            work.terminate();
+        }
+
+        startWorker();
+
 
 ##如何让音频跟视频在ios跟android上自动播放
 
