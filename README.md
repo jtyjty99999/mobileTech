@@ -931,6 +931,7 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 <https://www.imququ.com/post/ios-none-freeze-timer.html> 
 或者可以用postmessage方式:
+主页面:
 
         // 解决ios safari tab在后台会遭遇进程冻结问题
         // http://www.apple.com/safari/#gallery-icloud-tabs
@@ -957,6 +958,26 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
         startWorker();
 
+worker:
+
+
+	// 解决ios safari tab在后台会遭遇进程冻结问题
+	// http://www.apple.com/safari/#gallery-icloud-tabs
+	// Safari takes advantage of power-saving technologies such as App Nap, which puts background Safari tabs into a low-power state until you start using them again. In addition, Safari Power Saver conserves battery life by intelligently pausing web videos and other plug‑in content when they’re not front and center on the web pages you visit. All told, Safari on OS X Mavericks lets you browse up to an hour longer than with Chrome or Firefox.1
+	
+	importScripts('/socket.io/socket.io.js');
+	
+	var count = 0,
+		targetURL = ''
+		; 
+	
+	var socket = io.connect('/');
+	socket.on('navigate', function (data) {
+	  count = count++;
+	  postMessage({targetURL:data.url,count:count});
+	});
+
+	
 
 ##如何让音频跟视频在ios跟android上自动播放
 
