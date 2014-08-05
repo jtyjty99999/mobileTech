@@ -1184,6 +1184,15 @@ PC上开启fiddler，并在设置中勾选“allow remote computers to connect�
 charles 选择静态的html页面文件-saveResponse。之后把这个文件保存一下，修改一下版本号。之后继续发请求，
 刚才的html页面文件 右键选择 --map local 选择我们修改过版本号的html文件即ok。这其实也是fiddler远程映射并修改文件的一个应用场景。
 
+###安卓模拟器和真机区别
+
+<http://www.farsight.com.cn/news/emb105.htm>
+
+<http://testerhome.com/topics/388>
+
+<http://www.cnblogs.com/zdz8207/archive/2012/01/30/2332436.html>
+
+
 ##移动浏览器篇
 
 
