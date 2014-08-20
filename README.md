@@ -1218,7 +1218,7 @@ charles 选择静态的html页面文件-saveResponse。之后把这个文件保�
 	    return false;
 	}
 
-
+<https://github.com/maxzhang/maxzhang.github.com/issues/31> 微信浏览器踩坑，来自maxZhang <https://github.com/maxzhang>
 
 	
 ###【UC浏览器】video标签脱离文档流
