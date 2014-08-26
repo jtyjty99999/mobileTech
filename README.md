@@ -624,6 +624,25 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
 
+###判断照片的横竖排列
+
+有这样一种需求，需要判断用户照片是横着拍出来的还是竖着拍出来的，这里需要使用照片得exif信息：
+
+	$("input").change(function() {
+	    var file = this.files[0];
+	    fr   = new FileReader;
+	
+	    fr.onloadend = function() {
+	        var exif = EXIF.readFromBinaryFile(new BinaryFile(this.result));
+	        alert(exif.Orientation);
+	    };
+	
+	    fr.readAsBinaryString(file);
+	});
+	
+可以使用这两个库 来取exif信息<http://www.nihilogic.dk/labs/binaryajax/binaryajax.js> <http://www.nihilogic.dk/labs/exif/exif.js>
+
+
 ###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
 
 <http://www.iunbug.com/archives/2013/04/23/798.html>
@@ -699,6 +718,35 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 ###测试是否支持svg图片
 
 	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
+	
+	
+##考虑兼容“隐私模式”(from <http://blog.youyo.name/archives/smarty-phones-webapp-deverlop-advance.html>)
+ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这个模式，那么在使用html5的本地存储的一种————localStorage时，可能因为“隐私模式”下没有权限读写localstorge而使代码抛出错误，导致后续的js代码都无法运行了。
+
+既然在safari的“隐私模式”下，没有调用localStorage的权限，首先想到的是先判断是否支持localStorage，代码如下：
+
+	if('localStorage' in window){
+	    //需要使用localStorage的代码写在这
+	}else{
+	    //不支持的提示和向下兼容代码
+	}
+	
+测试发现，即使在safari的“隐私模式”下，’localStorage’ in window的返回值依然为true，也就是说，if代码块内部的代码依然会运行，问题没有得到解决。
+接下来只能相当使用try catch了，虽然这是一个不太推荐被使用的方法，使用try catch捕获错误，使后续的js代码可以继续运行，代码如下：
+
+	try{
+	    if('localStorage' in window){
+	         //需要使用localStorage的代码写在这
+	    }else{
+	         //不支持的提示和向下兼容代码
+	    }
+	}catch(e){
+	    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
+	}
+	
+所以，提醒大家注意，在需要兼容ios的safari的“隐私模式”的情况下，本地存储相关的代码需要使用try catch包裹并降级兼容。
+
+
 
 ###安卓手机点击锁定页面效果问题
 
@@ -726,6 +774,11 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 [UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
  
 
+##判断用户是否是“将网页添加到主屏后，再从主屏幕打开这个网页”的
+
+	navigator.standalone
+
+
 ###隐藏地址栏 & 处理事件的时候，防止滚动条出现：
 
 	// 隐藏地址栏  & 处理事件的时候 ，防止滚动条出现
@@ -743,7 +796,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";   // 如果名称是  n 的数据存在 ，则将其读出 ，赋予变量  v  。
 	localStorage.setItem('n', v);                                           // 写入名称为 n、值为  v  的数据
-	localStorage.removeItem('n');                                           // 删除名称为  n  的数据
+	localStorage.removeItem('n');        // 删除名称为  n  的数据
 ###使用特殊链接：
 如果你关闭自动识别后 ，又希望某些电话号码能够链接到 iPhone 的拨号功能 ，那么可以通过这样来声明电话链接 ,
 
@@ -774,6 +827,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
 
+
 ###拿到滚动条
 
 	window.scrollY
@@ -798,6 +852,10 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 ###关于 iOS 系统中，Web APP 启动图片在不同设备上的适应性设置
 
 <http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893>
+
+###position:sticky与position:fixed布局
+<http://www.zhouwenbin.com/positionsticky-%E7%B2%98%E6%80%A7%E5%B8%83%E5%B1%80/>
+<http://www.zhouwenbin.com/sticky%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/>
 
 ###关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
 可以通过正则去掉 
@@ -868,10 +926,58 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 <http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
 
-##不暂停的计时器
+
+##不暂停的计时器（safari的进程冻结）
 
 <https://www.imququ.com/post/ios-none-freeze-timer.html> 
-还有一种利用work的方式，在写ing。。
+或者可以用postmessage方式:
+主页面:
+
+        // 解决ios safari tab在后台会遭遇进程冻结问题
+        // http://www.apple.com/safari/#gallery-icloud-tabs
+        // Safari takes advantage of power-saving technologies such as App Nap, which puts background Safari tabs into a low-power state until you start using them again. In addition, Safari Power Saver conserves battery life by intelligently pausing web videos and other plug‑in content when they’re not front and center on the web pages you visit. All told, Safari on OS X Mavericks lets you browse up to an hour longer than with Chrome or Firefox.1
+        var work;
+        function startWorker() {
+            if (typeof(Worker) !== "undefined") {
+                if (typeof(work) == "undefined") {
+                    work = new Worker("/workers.js");
+                }
+                work.onmessage = function(event) {
+                    // document.getElementById("result-count").innerHTML = event.data.count;
+                    // document.getElementById("result-url").innerHTML = event.data.targetURL;
+                    if (target && event.data.targetURL != "") target.location.href = event.data.targetURL;
+                };
+            } else {
+                console.log('does not support Web Workers...');
+            }
+        }
+
+        function stopWorker() {
+            work.terminate();
+        }
+
+        startWorker();
+
+worker:
+
+
+	// 解决ios safari tab在后台会遭遇进程冻结问题
+	// http://www.apple.com/safari/#gallery-icloud-tabs
+	// Safari takes advantage of power-saving technologies such as App Nap, which puts background Safari tabs into a low-power state until you start using them again. In addition, Safari Power Saver conserves battery life by intelligently pausing web videos and other plug‑in content when they’re not front and center on the web pages you visit. All told, Safari on OS X Mavericks lets you browse up to an hour longer than with Chrome or Firefox.1
+	
+	importScripts('/socket.io/socket.io.js');
+	
+	var count = 0,
+		targetURL = ''
+		; 
+	
+	var socket = io.connect('/');
+	socket.on('navigate', function (data) {
+	  count = count++;
+	  postMessage({targetURL:data.url,count:count});
+	});
+
+	
 
 ##如何让音频跟视频在ios跟android上自动播放
 
@@ -1034,6 +1140,10 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 主要原因就在于Android Webview的onPageFinished事件，Android端一般是用这个事件来标识页面加载完成并显示的，也就是说在此之前，会一直loading，但是Android的OnPageFinished事件会在Javascript脚本执行完成之后才会触发。如果在页面中使用JQuery，会在处理完DOM对象，执行完$(document).ready(function() {});事件自会后才会渲染并显示页面。
 
+###manifest与缓存相关:
+<http://www.alloyteam.com/2013/12/web-cache-6-hybrid-app-tailored-cache/>
+相关解决方案
+<http://mt.tencent.com/>
 
 ##移动端调适篇
 
@@ -1074,6 +1184,15 @@ PC上开启fiddler，并在设置中勾选“allow remote computers to connect�
 charles 选择静态的html页面文件-saveResponse。之后把这个文件保存一下，修改一下版本号。之后继续发请求，
 刚才的html页面文件 右键选择 --map local 选择我们修改过版本号的html文件即ok。这其实也是fiddler远程映射并修改文件的一个应用场景。
 
+###安卓模拟器和真机区别
+
+<http://www.farsight.com.cn/news/emb105.htm>
+
+<http://testerhome.com/topics/388>
+
+<http://www.cnblogs.com/zdz8207/archive/2012/01/30/2332436.html>
+
+
 ##移动浏览器篇
 
 
@@ -1099,7 +1218,7 @@ charles 选择静态的html页面文件-saveResponse。之后把这个文件保�
 	    return false;
 	}
 
-
+<https://github.com/maxzhang/maxzhang.github.com/issues/31> 微信浏览器踩坑，来自maxZhang <https://github.com/maxzhang>
 
 	
 ###【UC浏览器】video标签脱离文档流
@@ -1292,6 +1411,8 @@ iscroll的闪动问题也与渲染有关系，可以参考
 这个会存在一些安全问题，可以参考这个问题的讨论 <http://www.zhihu.com/question/22992229>
 
 ##PhoneGap 部分
+
+<http://snoopyxdy.blog.163.com/blog/static/60117440201432491123551> 这里有一大堆snoopy总结的phonggap开发坑
 
 ###Should not happen: no rect-based-test nodes found 
 在 Android 项目中的 assets 中的 HTML 页面中加入以下代码，便可解决问题
