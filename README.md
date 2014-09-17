@@ -54,6 +54,11 @@ A useful tools or tips list for mobile web application developing
 [HTML5 POLYFILLS](http://html5polyfill.com/ "HTML5 POLYFILLS")
 
 
+##iphone6的那些事
+
+[iPhone 6 屏幕揭秘](http://wileam.com/iphone-6-screen-cn/)
+
+
 ##响应式测试工具
 
 Firefox 浏览器内置了 `自定义设计视图` 的功能，可以通过 `Firefox->Web 开发者->自定义设计视图`（或者摁下 `Shift + Ctrl + m` ）。相比网络工具，运行更加流畅，无需联网。
