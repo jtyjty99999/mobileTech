@@ -129,6 +129,8 @@ Firefox 浏览器内置了 `自定义设计视图` 的功能，可以通过 `Fir
 
 ###meta标签
 
+meta标签大全 <http://segmentfault.com/blog/ciaocc/1190000002407912>
+
 meta标签，这些meta标签在开发webapp时起到非常重要的作用
 
 	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
