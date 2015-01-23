@@ -992,6 +992,10 @@ worker:
 
 	
 
+##ios上background-attachment:fixed不能正常工作
+
+参考 http://stackoverflow.com/questions/20443574/fixed-background-image-with-ios7
+
 ##如何让音频跟视频在ios跟android上自动播放
 
 	<audio autoplay ><source  src="audio/alarm1.mp3" type="audio/mpeg"></audio>
