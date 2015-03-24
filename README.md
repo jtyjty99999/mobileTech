@@ -476,7 +476,7 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
 我一开始也使用，不过自从用了`-webkit-overflow-scrolling: touch;`样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
 
-
+另外有一篇比较全的移动端点击解决方案 <http://www.zhihu.com/question/28979857>
 
 ###锁定 viewport
 
