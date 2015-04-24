@@ -231,17 +231,6 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 	});
  
 
-###双手指滑动事件：
-
-	// 双手指滑动事件
-	addEventListener('load',　　function(){ window.onmousewheel = twoFingerScroll;},
-		false              // 兼容各浏览器，表示在冒泡阶段调用事件处理程序 (true 捕获阶段)
-	);
-	function twoFingerScroll(ev) {
-		var delta =ev.wheelDelta/120;              //对 delta 值进行判断(比如正负) ，而后执行相应操作
-		return true;
-	};
-
 
 ###JS 单击延迟
 click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不是很好。
@@ -823,7 +812,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 
 	// 判断是否为 iPhone ：
 	function isAppleMobile() {
-		return (navigator.platform.indexOf('iPad') != -1);
+		return (navigator.platform.indexOf('iPhone') != -1);
 	};
 ###localStorage:
 
