@@ -1224,6 +1224,8 @@ charles 选择静态的html页面文件-saveResponse。之后把这个文件保�
 
 ###微信浏览器
 
+微信浏览器的各种bug汇总 （x5内核） <http://www.qianduan.net/qqliu-lan-qi-x5nei-he-wen-ti-hui-zong/>
+
 因为微信浏览器屏蔽了一部分链接图片，所以需要引导用户去打开新页面，可以用以下方式判断微信浏览器的ua
 
 	function is_weixn(){
