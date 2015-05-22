@@ -98,6 +98,10 @@ Firefox 浏览器内置了 `自定义设计视图` 的功能，可以通过 `Fir
 
 [当前 WEB APP 开发的最佳实践](http://lyric.im/best-practice-for-web-app-development/)
 
+[如何自适应网页屏幕](https://www.icloud.com/keynote/AwBWCAESEJd5uucfBPGt6KPotb3tNfsaKm-Q7fqs2-4ojmPoPJuWZCvjYgKl5jEf1URdRgdgNHe38BTzeF3DK7q1ewMCUCAQEEIJ85mw21ii_AwybOqxoF-V02v51Vdg855ED4qVA_8bXr#Mobile_Webpage_如何自适应屏幕_2)
+以及[配套的解决方案](https://github.com/unbug/generator-webappstarter/blob/master/app/templates/app/src/util/MetaHandler.js)
+
+
 
 ##来自[maxzhang](https://github.com/maxzhang "ava")的一些移动端经验总结干货
 
@@ -170,6 +174,7 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 更详细的 viewport 相关的知识也可以参考
 
 [此像素非彼像素](http://www.w3cplus.com/css/A-pixel-is-not-a-pixel-is-not-a-pixel.html "pixel")
+
 
 ##移动开发事件
 
