@@ -1003,8 +1003,8 @@ worker:
 	  count = count++;
 	  postMessage({targetURL:data.url,count:count});
 	});
-
-	
+##Web移动端Fixed布局的解决方案
+<http://efe.baidu.com/blog/mobile-fixed-layout/>
 
 ##ios上background-attachment:fixed不能正常工作
 
