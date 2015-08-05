@@ -175,6 +175,12 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 
 [此像素非彼像素](http://www.w3cplus.com/css/A-pixel-is-not-a-pixel-is-not-a-pixel.html "pixel")
 
+##适配类文章
+
+[移动端高清、多屏适配方案](http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041 "pixel")
+
+[手机淘宝的flexible设计与实现](http://www.html-js.com/article/2402 "pixel")
+
 
 ##移动开发事件
 
