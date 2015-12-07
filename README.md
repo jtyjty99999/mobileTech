@@ -595,6 +595,15 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 这里有更详细的更多的选择<http://www.zhouwenbin.com/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/> 来自周文彬的博客
 
 
+###h5底部输入框被键盘遮挡问题
+
+h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键盘后输入框会被遮挡。
+
+可以使用这个api，在点击input的时候调用即可 <https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView>
+
+如果切换输入法，由于不同输入法高度不同，又会出现被遮挡问题。由于无法捕获切换输入法的事件，因此可以开一个计时器，不断执行sscrollintoview即可。
+
+
 ###移动端实现标题文字截断
 <http://www.75team.com/archives/611>
  
