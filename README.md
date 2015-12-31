@@ -11,7 +11,7 @@ A useful tools or tips list for mobile web application developing
  
  [各种奇妙的hack](http://browserhacks.com/ "各种奇妙的hack")
  
- [几乎所有设备的屏幕尺寸与像素密度表](https://www.google.com/fusiontables/DataSource?docid=1N_eJYR_topuk3xmrOeNhYEsST_LAJikGKKzOQ2o "几乎所有设备的屏幕尺寸与像素密度表")
+ [几乎所有设备的屏幕尺寸与像素密度表](http://pixensity.com/list/ "几乎所有设备的屏幕尺寸与像素密度表")
  
  [移动设备参数表](http://screensiz.es/phone "移动设备参数表")
  
