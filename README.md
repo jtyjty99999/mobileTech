@@ -541,6 +541,13 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
  
+###禁止body滚动
+
+	document.body.ontouchmove=function(e){ e.preventDefault(); }
+	
+###页面长按，高亮全选文本
+
+	<http://blog.csdn.net/freshlover/article/details/40432247>
 
 ###模拟:hover伪类
 因为iPhone并没有鼠标指针，所以没有hover事件。那么CSS :hover伪类就没用了。但是iPhone有Touch事件，onTouchStart 类似 onMouseOver，onTouchEnd 类似 onMouseOut。所以我们可以用它来模拟hover。使用Javascript：
