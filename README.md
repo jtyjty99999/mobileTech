@@ -5,6 +5,18 @@ A useful tools or tips list for mobile web application developing
 这个项目收集移动端开发所需要的一些资源与小技巧
 
 
+## 移动端统计 (from BiosSun)
+ 
+ 可基于下方所列出的统计数据来决定您要兼容的设备及浏览器。
+ 
+  [百度移动统计](http://tongji.baidu.com/data/mobile/brand "百度移动设备统计")
+ 
+  [友盟指数](http://www.umindex.com/ "友盟指数")
+ 
+  [CNZZ 桌面及移动端浏览器统计](http://brow.data.cnzz.com/ "CNZZ 桌面及移动端浏览器统计")
+ 
+  [全球移动端浏览器统计](https://www.netmarketshare.com/browser-market-share.aspx?qprid=0&qpcustomd=1 "全球移动端浏览器统计")
+
 ##工具类网站
 
  [HTML5 与 CSS3 技术应用评估](http://html5please.com/ "html5与css3技术应用评估")
@@ -32,6 +44,8 @@ A useful tools or tips list for mobile web application developing
  [在线转换字体](http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
  
  [css3 选择器测试](http://tools.css3.info/selectors-test/test.html "css3选择器测试")
+
+ [测试浏览器对 ECMAScript6 的支持度](http://kangax.github.io/compat-table/es6/ "测试浏览器对 ECMAScript6 的支持度")
  
  [兼容性速查表](http://caniuse.com/ "兼容性速查表")
  
@@ -391,6 +405,20 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
 	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
  
+ ###自定义滚动条 from unknown
+ 
+ 有没有觉得浏览器自带的原始滚动条很不美观，同时也有看到很多网站的自定义滚动条显得高端，就连chrome32.0开发板都抛弃了原始的滚动条，美观多了。那webkit浏览器是如何自定义滚动条的呢？
+ 参考：
+ * <http://www.xuanfengge.com/css3-webkit-scrollbar.html>
+ * <http://www.zhaoan.org/849.html>
+ 
+ >后记：有时候，我们开发H5页面时为了美观，可能会隐藏滚动条，那么此时只要使用如下CSS代码即可实现
+ 
+ 	::-webkit-scrollbar {
+ 		width: 0;
+ 		height: 0;
+ 	}
+ 	
 ###页面描述
 
 
@@ -613,6 +641,9 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 ###移动端实现标题文字截断
 <http://www.75team.com/archives/611>
+ 
+## placeholder--line-height
+ input 的placeholder会出现文本位置偏上的情况：PC端设置line-height等于height能够对齐，而移动端仍然是偏上，解决是设置line-height：normal，（stackoverflow也可查到这种解决办法）。
  
 ###处理 Retina 双倍屏幕
  
