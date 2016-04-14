@@ -1349,6 +1349,7 @@ Demo：<http://t.cn/zYLTSg6>
 
 场景：使用以下代码，横竖屏操作后，rem并没有被重新计算，一开始以为是页面没有重绘，强制重绘页面后，发现问题并没有解决。
 
+``` javascript
   (function (doc, win) {
       var docEl = doc.documentElement,
           resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -1362,11 +1363,12 @@ Demo：<http://t.cn/zYLTSg6>
       win.addEventListener(resizeEvt, recalc, false);
       doc.addEventListener('DOMContentLoaded', recalc, false);
   })(document, window);
+```
 
 测试环境：UC浏览器 V10.9 + Android 6.0+ 。
 
 解决方案：手动在head中插入style，给html设置font-size,并使用 !important 增加优先级，
-
+``` javascript
   (function (doc, win) {
       var docEl = doc.documentElement,
           resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -1388,7 +1390,7 @@ Demo：<http://t.cn/zYLTSg6>
       win.addEventListener(resizeEvt, recalc, false);
       doc.addEventListener('DOMContentLoaded', recalc, false);
   })(document, window);
-
+```
 
 
 ###【QQ手机浏览器】不支持HttpOnly
