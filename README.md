@@ -507,17 +507,29 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 
 
 [7 天打造前端性能监控系统](http://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/)
+
 [16_ms_optimization—web_front-end_performance_optimization](http://velocity.oreilly.com.cn/2013/ppts/16_ms_optimization--web_front-end_performance_optimization.pdf)
+
 [velocity 2011 移动互联网应用的性能优化](http://velocity.oreilly.com.cn/2011/index.php?func=session&name=%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A)
+
 [Medium图片加载模式](https://github.com/lx7575000/Translation/blob/master/%EF%BC%88%E8%AF%91%EF%BC%89Medium%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%BC%8F/%EF%BC%88%E8%AF%91%EF%BC%89Medium%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%BC%8F.md)
+
 [Web性能权威指南](https://lwdgit.github.io/editor.md/)
+
 [Google 性能优化](https://developers.google.com/web/fundamentals/performance/?hl=zh-cn)
+
 [http2资料汇总](https://imququ.com/post/http2-resource.html)
+
 [离线缓存使用规范](http://www.html5rocks.com/zh/tutorials/appcache/beginner/)
+
 [12步创建高性能Web APP](http://www.cnblogs.com/qq309240790/p/5252992.html)
+
 [css加载方式](https://jakearchibald.com/2016/link-in-body/)
+
 [Google AMP (AMP is a way to build web pages for static content that render fast)](https://www.ampproject.org/docs/get_started/about-amp.html)
+
 [缓存最佳实践](https://www.ampproject.org/docs/get_started/about-amp.html)
+
 [以层为基础的渲染加速－chrome](http://www.html5rocks.com/zh/tutorials/speed/layers/)
 
 ###点击与click事件
