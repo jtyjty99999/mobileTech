@@ -6,57 +6,57 @@ A useful tools or tips list for mobile web application developing
 
 
 ## 移动端统计 (from BiosSun)
- 
+
  可基于下方所列出的统计数据来决定您要兼容的设备及浏览器。
- 
+
   [百度移动统计](http://tongji.baidu.com/data/mobile/brand "百度移动设备统计")
- 
+
   [友盟指数](http://www.umindex.com/ "友盟指数")
- 
+
   [CNZZ 桌面及移动端浏览器统计](http://brow.data.cnzz.com/ "CNZZ 桌面及移动端浏览器统计")
- 
+
   [全球移动端浏览器统计](https://www.netmarketshare.com/browser-market-share.aspx?qprid=0&qpcustomd=1 "全球移动端浏览器统计")
 
 ##工具类网站
 
  [HTML5 与 CSS3 技术应用评估](http://html5please.com/ "html5与css3技术应用评估")
- 
+
  [各种奇妙的hack](http://browserhacks.com/ "各种奇妙的hack")
- 
+
  [几乎所有设备的屏幕尺寸与像素密度表](http://pixensity.com/list/ "几乎所有设备的屏幕尺寸与像素密度表")
- 
+
  [移动设备参数表](http://screensiz.es/phone "移动设备参数表")
- 
+
  [ios端移动设备参数速查](http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
- 
+
  [浏览器兼容表](http://www.quirksmode.org/compatibility.html "浏览器兼容表")
- 
+
  [移动设备查询器](https://deviceatlas.com/device-data/devices "移动设备查询器")
- 
+
  [移动设备适配库](http://51degrees.codeplex.com/ "移动设备适配库")
- 
+
  [移动设备适配库2](http://detectmobilebrowsers.com/ "移动设备适配库2")
- 
+
  [viewport与设备尺寸在线检测器](https://deviceatlas.com/device-data/devices "viewport与设备尺寸在线检测器")
- 
+
  [html5 移动端兼容性速查](http://mobilehtml5.org/ "html5移动端兼容性速查")
- 
+
  [在线转换字体](http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
- 
+
  [css3 选择器测试](http://tools.css3.info/selectors-test/test.html "css3选择器测试")
 
  [测试浏览器对 ECMAScript6 的支持度](http://kangax.github.io/compat-table/es6/ "测试浏览器对 ECMAScript6 的支持度")
- 
+
  [兼容性速查表](http://caniuse.com/ "兼容性速查表")
- 
+
  [浏览器的一些独特参数](http://www.browserscope.org/ "浏览器的一些独特参数")
- 
+
  [各种各样的媒体查询收集](http://nmsdvid.com/snippets/ "各种各样的媒体查询收集")
- 
+
  [css3 动画在线制作器](http://css3lib.alloyteam.com/#animation/AnimatedButtons "css3动画在线制作器")
- 
+
  [css3 渐变在线制作器](http://www.colorzilla.com/gradient-editor/ "css3渐变在线制作器")
- 
+
 
 [移动端手势表](http://ww1.sinaimg.cn/bmiddle/c2c57f68jw1e4fh7dmw12j20fi2w6qe1.jpg "移动端手势表")
 
@@ -139,9 +139,9 @@ Firefox 浏览器内置了 `自定义设计视图` 的功能，可以通过 `Fir
 ##本资料很多引用了指尖上的js系列
 
  [指尖下的js ——多触式web前端开发之一：对于Touch的处理](http://www.cnblogs.com/pifoo/archive/2011/05/23/webkit-touch-event-1.html "article1")
- 
+
  [指尖下的js ——多触式web前端开发之二：处理简单手势](http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-2.html "article2")
- 
+
  [指尖下的js —— 多触式web前端开发之三：处理复杂手势](http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html "article3")
 
 ##基础知识
@@ -255,7 +255,7 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 		orientationChange();
 		window.onorientationchange = orientationChange;
 	});
- 
+
 
 
 ###JS 单击延迟
@@ -282,13 +282,13 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-padding-start: width;
 	-webkit-border-image: url(borderimg.gif) 25 25 25 25 round/stretch round/stretch;
 	-webkit-appearance: push-button;   //内置的CSS 表现，暂时只支持push-button
- 
+
 
 ②“视觉格式化模型”描述性质，确定了位置和大小的块元素。
 
 	direction: rtl
 	unicode-bidi: bidi-override; 常量：bidi-override/embed/normal
- 
+
 
 ③“视觉效果”描述属性，调整的视觉效果块内容，包括溢出行为，调整行为，能见度，动画，变换，和过渡。
 
@@ -306,7 +306,7 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-perspective-origin: left top;
 	-webkit-transform: rotate(5deg);
 	-webkit-transform-style: preserve-3d; 常量：flat/preserve-3d; (2D 与3D)
- 
+
 
 ④“生成的内容，自动编号，并列出”描述属性，允许您更改内容的一个组成部分，创建自动编号的章节和标题，和操纵的风格清单的内容。
 
@@ -317,21 +317,21 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	three section
 	counter-increment: section 1;
 	counter-reset: section;
- 
+
 
 ⑤“分页媒体”描述性能与外观的属性，控制印刷版本的网页，如分页符的行为。
 
 	page-break-after: auto; 常量：always/auto/avoid/left/right
 	page-break-before: auto; 常量：always/auto/avoid/left/right
 	page-break-inside: auto; 常量：auto/avoid
- 
+
 
 ⑥“颜色和背景”描述属性控制背景下的块级元素和颜色的文本内容的组成部分。
 
 	-webkit-background-clip: content; 常量：border/content/padding/text
 	-webkit-background-origin: padding; 常量：border/content/padding/text
 	-webkit-background-size: 55px; 常量：length/length_x/length_y
- 
+
 
 ⑦ “字型”的具体描述性质的文字字体的选择范围内的一个因素。报告还描述属性用于下载字体定义。
 
@@ -357,7 +357,7 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-user-drag: element; 常量：element/auto/none
 	-webkit-user-modify: read- only; 常量：read-write-plaintext-only/read-write/read-only
 	-webkit-user-select: text; 常量：text/auto/none
- 
+
 
 ⑨“表格”描述的布局和设计性能表的具体内容。
 
@@ -369,7 +369,7 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-column-count: 3; //分栏
 	-webkit-column-rule: 1px solid #fff;
 	style:dashed,dotted,double,groove,hidden,inset,none,outset,ridge,solid
- 
+
 
 ⑩“用户界面”描述属性，涉及到用户界面元素在浏览器中，如滚动文字区，滚动条，等等。报告还描述属性，范围以外的网页内容，如光标的标注样式和显示当您按住触摸触摸
 目标，如在iPhone上的链接。
@@ -382,7 +382,7 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-box-ordinal-group: group_number
 	-webkit-box-orient: block-axis; 常量：block-axis/horizontal/inline-axis/vertical/orientation
 	–webkit-box-pack: alignment; 常量：center/end/justify/start
- 
+
 
 动画过渡
 这是 Webkit 中最具创新力的特性：使用过渡函数定义动画。
@@ -395,7 +395,7 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	-webkit-animation-delay：10ms //动画延迟(默认0)
 	-webkit-animation-iteration-count： //循环次数(默认1)，infinite 为无限
 	-webkit-animation-direction： //动画方式：normal(默认 正向播放)； alternate(交替方向，第偶数次正向播放，第奇数次反向播放)
- 
+
 
 这些同样是可以简写的。但真正让我觉的很爽的是keyframes，它能定义一个动画的转变过程供调用，过程为0%到100%或from(0%)到to(100%)。简单点说，只要你有想法，你想让元素在这个过程中以什么样的方式改变都是很简单的。
 
@@ -404,43 +404,43 @@ click 事件因为要等待单击确认，会有 300ms 的延迟，体验并不�
 	rotate(*deg) 转动角度。rotateX 和 rotateY，可以简写为：rotate(* , *)
 	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
 	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
- 
+
  ###自定义滚动条 from unknown
- 
+
  有没有觉得浏览器自带的原始滚动条很不美观，同时也有看到很多网站的自定义滚动条显得高端，就连chrome32.0开发板都抛弃了原始的滚动条，美观多了。那webkit浏览器是如何自定义滚动条的呢？
  参考：
  * <http://www.xuanfengge.com/css3-webkit-scrollbar.html>
  * <http://www.zhaoan.org/849.html>
- 
+
  >后记：有时候，我们开发H5页面时为了美观，可能会隐藏滚动条，那么此时只要使用如下CSS代码即可实现
- 
+
  	::-webkit-scrollbar {
  		width: 0;
  		height: 0;
  	}
- 	
+
 ###页面描述
 
 
 	<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
-	
+
 
 这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
 
 	<link rel="apple-touch-startup-image" href="/img/startup.png" />
-	
+
 这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	
+
 这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明请参照：[Safari HTML Reference - Supported Meta Tags](https://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)
 
 	<meta name="apple-touch-fullscreen" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
-	
+
 ##常见的 iPhone 和 Android 屏幕参数。
 
 * 设备	     分辨率	    设备像素比率
@@ -460,7 +460,7 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 2.0)" href="retina.css" />
- 
+
 2、CSS文件里
 
 	#header {
@@ -536,7 +536,7 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 
 对于a标记的点击导航，默认是在onclick事件中处理的。而移动客户端对onclick的响应相比PC浏览器有着明显的几百毫秒延迟。
 
-在移动浏览器中对触摸事件的响应顺序应当是： 
+在移动浏览器中对触摸事件的响应顺序应当是：
 
 	ontouchstart -> ontouchmove -> ontouchend -> onclick
 
@@ -545,14 +545,14 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 使用click会出现绑定点击区域闪一下的情况，解决：给该元素一个样式如下
 
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	
+
 如果不使用click，也不能简单的用touchstart或touchend替代，需要用touchstart的模拟一个click事件，并且不能发生touchmove事件，或者用zepto中的tap（轻击）事件。
 
 	body
 	{
 		-webkit-overflow-scrolling: touch;
 	}
-	
+
 用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置 `height:200px;overflow:auto;`的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
 
 我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
@@ -571,7 +571,7 @@ Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合
 
 	var mql = window.matchMedia("(orientation: portrait)");
 	mql.addListener(handleOrientationChange);
-	handleOrientationChange(mql); 
+	handleOrientationChange(mql);
 	function handleOrientationChange(mql) {
 	  if (mql.matches) {
 	    alert('The device is currently in portrait orientation ')
@@ -591,16 +591,16 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 1. <http://jsbin.com/vaqexuge/4/edit>  这有个demo，发现chrome当font-size小于12时，rem会按照12来计算。因此设置基准值要考虑这一点
 2. 可以用以下的代码片段保证在低端浏览器下也不会出问题
 
-	
-	html { font-size: 62.5%; } 
+
+	html { font-size: 62.5%; }
 	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
 	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
- 
+
 
 ###被点击元素的外观变化，可以使用样式来设定：
 
 	-webkit-tap-highlight-color: 颜色
- 
+
 
 ###检测判断 iPhone/iPod
 开发特定设备的移动网站，首先要做的就是设备侦测了。下面是使用Javascript侦测iPhone/iPod的UA，然后转向到专属的URL。
@@ -610,7 +610,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	　　　　window.location = "http://m.example.com";
 	　　}
 	}
- 
+
 
 虽然Javascript是可以在水果设备上运行的，但是用户还是可以禁用。它也会造成客户端刷新和额外的数据传输，所以下面是服务器端侦测和转向：
 
@@ -621,11 +621,11 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 ###阻止旋转屏幕时自动调整字体大小
 
 	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
- 
+
 ###禁止body滚动
 
 	document.body.ontouchmove=function(e){ e.preventDefault(); }
-	
+
 ###页面长按，高亮全选文本
 
 	<http://blog.csdn.net/freshlover/article/details/40432247>
@@ -647,9 +647,9 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 ###Flexbox 布局
 
  [Flex 模板和实例](http://jsbin.com/ibuwol/2/edit "article5")
- 
+
  [深入了解 Flexbox 伸缩盒模型](http://www.w3cplus.com/blog/666.html "article6")
- 
+
  [CSS Flexbox Intro](http://yehao.diandian.com/post/2013-09-15/40052216426)
 
 <http://www.w3.org/TR/css3-flexbox/>
@@ -664,7 +664,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 - table布局法
 
 	.box{
-	  text-align:center; 
+	  text-align:center;
 	  display:table-cell;
 	  vertical-align:middle;
 	}
@@ -674,7 +674,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	.box{
 	  display:-webkit-box;
 	  -webkit-box-pack: center;
-	  -webkit-box-align: center; 
+	  -webkit-box-align: center;
 	  text-align:center;
 	}
 
@@ -694,28 +694,28 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 ###移动端实现标题文字截断
 <http://www.75team.com/archives/611>
- 
+
 ## placeholder--line-height
  input 的placeholder会出现文本位置偏上的情况：PC端设置line-height等于height能够对齐，而移动端仍然是偏上，解决是设置line-height：normal，（stackoverflow也可查到这种解决办法）。
- 
+
 ###处理 Retina 双倍屏幕
- 
- 
+
+
 
  [（经典）Using CSS Sprites to optimize your website for Retina Displays](http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
 
- [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5") 
+ [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5")
 
- [使用 CSS sprites 来优化你的网站在 Retina 屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
-  
- [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
- 
+ [使用 CSS sprites 来优化你的网站在 Retina 屏幕下显示](http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5")
+
+ [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES](http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5")
+
 ###input类型为date情况下不支持placeholder（来自于江水）
 
 这其实是浏览器自己的处理。因为浏览器会针对此类型 input 增加 datepicker 模块。
 
 对 input type date 使用 placeholder 的目的是为了让用户更准确的输入日期格式，iOS 上会有 datepicker 不会显示 placeholder 文字，但是为了统一表单外观，往往需要显示。Android 部分机型没有 datepicker 也不会显示 placeholder 文字。
- 
+
 
 桌面端（Mac）
 
@@ -724,14 +724,14 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
  - Chrome 支持 datepicker，显示 年、月、日 格式，忽略 placeholder。
 
 移动端
- 
+
  - iPhone5 iOS7 有 datepicker 功能，但是不显示 placeholder。
  - Andorid 4.0.4 无 datepicker 功能，不显示 placeholder
 
 解决方法：
 
-	<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
-	
+	<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date">
+
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
 
@@ -742,15 +742,15 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 	$("input").change(function() {
 	    var file = this.files[0];
 	    fr   = new FileReader;
-	
+
 	    fr.onloadend = function() {
 	        var exif = EXIF.readFromBinaryFile(new BinaryFile(this.result));
 	        alert(exif.Orientation);
 	    };
-	
+
 	    fr.readAsBinaryString(file);
 	});
-	
+
 可以使用这两个库 来取exif信息<http://www.nihilogic.dk/labs/binaryajax/binaryajax.js> <http://www.nihilogic.dk/labs/exif/exif.js>
 
 
@@ -762,7 +762,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 当前很多无线页面都使用前端模板进行数据渲染，那么在糟糕的网速情况下，一进去页面，看到的不是白屏就是 loading，这成为白屏问题。
 
-此问题发生的原因基本可以归结为网速跟静态资源 
+此问题发生的原因基本可以归结为网速跟静态资源
 
 1、css文件加载需要一些时间，在加载的过程中页面是空白的。 解决：可以考虑将css代码前置和内联。
 2、首屏无实际的数据内容，等待异步加载数据再渲染页面导致白屏。 解决：在首屏直接同步渲染html，后续的滚屏等再采用异步请求数据和渲染html。
@@ -771,7 +771,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 解决方案
 
 根本原因是客户端渲染的无力，因此最简单的方法是在服务器端，使用模板引擎渲染所有页面。同时
- 
+
  1减少文件加载体积，如html压缩，js压缩
  2加快js执行速度 比如常见的无限滚动的页面，可以使用js先渲染一个屏幕范围内的东西
  3提供一些友好的交互，比如提供一些假的滚动条
@@ -784,10 +784,10 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
 如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
 如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
-大概实现代码如下	
+大概实现代码如下
 
 	goToNative:function(){
-	
+
 		if(!body) {
                 setTimeout(function(){
                     doc.body.appendChild(iframe);
@@ -795,7 +795,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
             } else {
                 body.appendChild(iframe);
             }
-	
+
 	setTimeout(function() {
                 doc.body.removeChild(iframe);
                 gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
@@ -806,7 +806,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
             }, 800);
 	}
 
-			
+
 需要注意的是 如果是android chrome 25版本以后，在iframe src不会发送请求，
 原因如下<https://developers.google.com/chrome/mobile/docs/intents> ，通过location href使用intent机制拉起客户端可行并且当前页面不跳转。
 
@@ -814,7 +814,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 
 补充一个来自三水清的详细讲解 <http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
-	
+
 ###active的兼容(来自薛端阳)
 
 今天发现，要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
@@ -845,12 +845,12 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 	-webkit-backface-visibility: hidden;
 	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
 
- 
+
 ###测试是否支持svg图片
 
 	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
-	
-	
+
+
 ##考虑兼容“隐私模式”(from <http://blog.youyo.name/archives/smarty-phones-webapp-deverlop-advance.html>)
 ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这个模式，那么在使用html5的本地存储的一种————localStorage时，可能因为“隐私模式”下没有权限读写localstorge而使代码抛出错误，导致后续的js代码都无法运行了。
 
@@ -861,7 +861,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 	}else{
 	    //不支持的提示和向下兼容代码
 	}
-	
+
 测试发现，即使在safari的“隐私模式”下，’localStorage’ in window的返回值依然为true，也就是说，if代码块内部的代码依然会运行，问题没有得到解决。
 接下来只能相当使用try catch了，虽然这是一个不太推荐被使用的方法，使用try catch捕获错误，使后续的js代码可以继续运行，代码如下：
 
@@ -874,7 +874,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 	}catch(e){
 	    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
 	}
-	
+
 所以，提醒大家注意，在需要兼容ios的safari的“隐私模式”的情况下，本地存储相关的代码需要使用try catch包裹并降级兼容。
 
 
@@ -893,17 +893,17 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 	document.addEventListener("touchmove", touchHandlerDummy, false);
 	document.addEventListener("touchend", touchHandlerDummy, false);
 
-	
+
 ###消除ie10里面的那个叉号
 [IE Pseudo-elements](http://msdn.microsoft.com/en-us/library/windows/apps/hh767361.aspx "article4")
 
 	input:-ms-clear{display:none;}
-	
+
 ###关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
 [mac下网页中文字体优化](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
 
 [UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
- 
+
 
 ##判断用户是否是“将网页添加到主屏后，再从主屏幕打开这个网页”的
 
@@ -944,19 +944,19 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 要关闭这两项功能，可以通过autocapitalize 与autocorrect 这两个选项：
 
 	<input type="text" autocapitalize="off" autocorrect="off" />
- 
+
 
 ###不让 Android 识别邮箱
 
 	<meta content="email=no" name="format-detection" />
-	
+
 ###禁止 iOS 弹出各种操作窗口
 
 	-webkit-touch-callout:none
 ###禁止用户选中文字
 
 	-webkit-user-select:none
-	
+
 ###动画效果中，使用 translate 比使用定位性能高
 
 [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
@@ -966,13 +966,13 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 
 	window.scrollY
 	window.scrollX
- 
+
  比如要绑定一个touchmove的事件，正常的情况下类似这样(来自呼吸二氧化碳)
- 
+
 	$('div').on('touchmove', function(){
 	//.….code
 	{});
-	
+
 而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
 
 	$('div').on('touchmove', function(){
@@ -980,7 +980,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 	//.….code
 	},0);
 	{});
-	
+
 把代码放在setTimeout中，会发现程序变快.
 
 ###关于 iOS 系统中，Web APP 启动图片在不同设备上的适应性设置
@@ -992,7 +992,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 <http://www.zhouwenbin.com/sticky%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/>
 
 ###关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
-可以通过正则去掉 
+可以通过正则去掉
 
 	this.value = this.value.replace(/\u2006/g, '');
 
@@ -1009,11 +1009,11 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 	<label for="phone">Phone: *</label>
 	<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
-	
+
 解决方法
 
 	-webkit-user-modify: read-write-plaintext-only
-	
+
 详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
 注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
 
@@ -1033,8 +1033,8 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 
 	input::-webkit-input-speech-button {display: none}
-	
-	
+
+
 ##IE10 的特殊鼠标事件
 
 [IE10 事件监听](http://www.mansonchor.com/blog/blog_detail_73.html "article5")
@@ -1048,7 +1048,7 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 [iPhone: numeric keyboard for text input](http://stackoverflow.com/questions/6178556/iphone-numeric-keyboard-for-text-input)
 
 [Text Programming Guide for iOS - Managing the Keyboard](https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html)
-	
+
 [HTML5 inputs and attribute support](http://www.miketaylr.com/code/input-type-attr.html)
 
 
@@ -1063,7 +1063,7 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 
 ##不暂停的计时器（safari的进程冻结）
 
-<https://www.imququ.com/post/ios-none-freeze-timer.html> 
+<https://www.imququ.com/post/ios-none-freeze-timer.html>
 或者可以用postmessage方式:
 主页面:
 
@@ -1098,13 +1098,13 @@ worker:
 	// 解决ios safari tab在后台会遭遇进程冻结问题
 	// http://www.apple.com/safari/#gallery-icloud-tabs
 	// Safari takes advantage of power-saving technologies such as App Nap, which puts background Safari tabs into a low-power state until you start using them again. In addition, Safari Power Saver conserves battery life by intelligently pausing web videos and other plug‑in content when they’re not front and center on the web pages you visit. All told, Safari on OS X Mavericks lets you browse up to an hour longer than with Chrome or Firefox.1
-	
+
 	importScripts('/socket.io/socket.io.js');
-	
+
 	var count = 0,
 		targetURL = ''
-		; 
-	
+		;
+
 	var socket = io.connect('/');
 	socket.on('navigate', function (data) {
 	  count = count++;
@@ -1157,9 +1157,9 @@ worker:
 ###IP5 的媒体查询
 
 	@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-	
+
 	/* iPhone 5 or iPod Touch 5th generation */
-	
+
 	}
 ###使用媒体查询，提供不同的启动图片：
 
@@ -1187,13 +1187,13 @@ worker:
 
 	<meta name="apple-itunes-app" content="app-id=9999999">
 
-可以使用 app-argument 提供字符串值，如果参加iTunes联盟计划，可以添加元标记数据 
+可以使用 app-argument 提供字符串值，如果参加iTunes联盟计划，可以添加元标记数据
 
 	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
 
 	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
 
-横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。 
+横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。
 
 CSS3 滤镜
 
@@ -1255,7 +1255,7 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 	browser.getSettings().setDomStorageEnabled(true);
 	String databasePath = browser.getContext().getDir("databases", Context.MODE_PRIVATE).getPath();
 	browser.getSettings().setDatabasePath(databasePath);//Android　webview的LocalStorage有个问题，关闭APP或者重启后，就清楚了，所以需要browser.getSettings().setDatabase相关的操作，把LocalStoarge存到DB中
- 
+
 	myWebView.setWebChromeClient(new WebChromeClient(){
 	　　　 @Override
 	　　　 public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater)
@@ -1351,7 +1351,7 @@ charles 选择静态的html页面文件-saveResponse。之后把这个文件保�
 	        return false;
 	    }
 	}
-	
+
 后端判断也很简单，比如php
 
 	function is_weixin(){
@@ -1363,7 +1363,7 @@ charles 选择静态的html页面文件-saveResponse。之后把这个文件保�
 
 <https://github.com/maxzhang/maxzhang.github.com/issues/31> 微信浏览器踩坑，来自maxZhang <https://github.com/maxzhang>
 
-	
+
 ###【UC浏览器】video标签脱离文档流
 
 场景：<video>标签的父元素(祖辈元素)设置transform样式后，<video>标签会脱离文档流。
@@ -1374,7 +1374,7 @@ Demo：<http://t.cn/zj3xiyu>
 
 解决方案：不使用transform属性。translate用top、margin等属性替代。
 
- 
+
 
 ###【UC浏览器】video标签总在最前
 
@@ -1382,7 +1382,7 @@ Demo：<http://t.cn/zj3xiyu>
 
 测试环境：UC浏览器 8.7/8.6 + Android 2.3/4.0 。
 
- 
+
 
 ###【UC浏览器】position:fixed 属性在UC浏览器的奇葩现象
 
@@ -1396,7 +1396,55 @@ Demo：<http://t.cn/zj3xiyu>
 
 Demo：<http://t.cn/zYLTSg6>
 
- 
+
+
+###【UC浏览器】rem 不能正确计算的问题
+
+场景：使用以下代码，横竖屏操作后，rem并没有被重新计算，一开始以为是页面没有重绘，强制重绘页面后，发现问题并没有解决。
+
+``` javascript
+  (function (doc, win) {
+      var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+          };
+      recalc();
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+```
+
+测试环境：UC浏览器 V10.9 + Android 6.0+ 。
+
+解决方案：手动在head中插入style，给html设置font-size,并使用 !important 增加优先级，
+``` javascript
+  (function (doc, win) {
+      var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              var style;
+              if(style=document.getElementById("hackUcRem")){
+                  style.parentNode.removeChild(style);
+              }
+              style = document.createElement("style");
+              style.id="hackUcRem";
+              document.head.appendChild(style);
+              style.appendChild(document.createTextNode("html{font-size:" + 100 * (clientWidth / 320) + "px !important;}"));
+              docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+          };
+      recalc();
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+```
+
 
 ###【QQ手机浏览器】不支持HttpOnly
 
@@ -1404,7 +1452,7 @@ Demo：<http://t.cn/zYLTSg6>
 
 测试环境：QQ手机浏览器 4.0/4.1/4.2 + Android 4.0 。
 
- 
+
 
 ###【MIUI原生浏览器】浏览器地址栏hash不改变
 
@@ -1416,7 +1464,7 @@ Demo：<http://t.cn/zYLTSg6>
 
 测试环境：MIUI 4.0
 
- 
+
 
 ###【Chrome Mobile】fixed元素无法点击
 
@@ -1447,18 +1495,18 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 ###zepto.js
 
  [zepto的一篇使用注意点讲解](http://chaoskeh.com/blog/some-experience-of-using-zepto.html "zepto")
- 
+
  [zepto的著名的tap“点透”bug](http://blog.youyo.name/archives/zepto-tap-click-through-research.html "zepto")
- 
+
  [zepto源码注释](http://www.cnblogs.com/sky000/archive/2013/03/29/2988952.html "zepto")
- 
+
 ###使用zeptojs内嵌到android webview影响正常滚动时
 <https://github.com/madrobby/zepto/blob/master/src/touch.js> 去掉61行,其实就是使用原生的滚动
 
 ###iscroll4
 
  iscroll4 的几个bug(来自 <http://www.mansonchor.com/blog/blog_detail_64.html> 内有详细讲解)
- 
+
 1.滚动容器点击input框、select等表单元素时没有响应】
 
 	onBeforeScrollStart: function (e) { e.preventDefault(); }
@@ -1477,7 +1525,7 @@ demo： <http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 改成
 
 	has3d = false
-	
+
 在配置iscroll时，useTransition设置成false
 
 3.过长的滚动内容，导致卡顿和app直接闪退
@@ -1507,7 +1555,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 			$(this).attr('moving','moving');
 
 		})
-		
+
 
 		$(document).delegate('[data-target]', 'touchend', function () {
 			if ($(this).attr('moving') !== 'moving') {
@@ -1532,7 +1580,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 [Device pixel density tests](http://bjango.com/articles/min-device-pixel-ratio/)
 
 
-##跨域问题 
+##跨域问题
 
 手机浏览器也是浏览器，在ajax调用外部api的时候也存在跨域问题。当然利用 PhoneGap 打包后，由于协议不一样就不存在跨域问题了。
 但页面通常是需要跟后端进行调试的。一般会报类似
@@ -1557,7 +1605,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 <http://snoopyxdy.blog.163.com/blog/static/60117440201432491123551> 这里有一大堆snoopy总结的phonggap开发坑
 
-###Should not happen: no rect-based-test nodes found 
+###Should not happen: no rect-based-test nodes found
 在 Android 项目中的 assets 中的 HTML 页面中加入以下代码，便可解决问题
 
 	window,html,body{
@@ -1565,7 +1613,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 	    -webkit-overflow-scrolling: touch !important;
 	    overflow: scroll !important;
 	}
-	
+
 参考：
 
 <http://stackoverflow.com/questions/12090899/android-webview-jellybean-should-not-happen-no-rect-based-test-nodes-found>
@@ -1577,11 +1625,11 @@ iscroll的闪动问题也与渲染有关系，可以参考
 注意使用 PhoneGap 的 API 时，一定要在 devicereay 事件的处理函数中使用 API
 
 	document.addEventListener("deviceready", onDeviceReady, false);
-	
+
 	    function onDeviceReady() {    
 	        callFetchContacts();
 	    }
-	
+
 	function callFetchContacts(){
 	    var options = new ContactFindOptions();
 	    options.multiple = true;
