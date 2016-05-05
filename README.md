@@ -700,8 +700,6 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 ###处理 Retina 双倍屏幕
 
-
-
  [（经典）Using CSS Sprites to optimize your website for Retina Displays](http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
 
  [使用CSS3的background-size优化苹果的Retina屏幕的图像显示](http://www.w3cplus.com/css/css-background-size-graphics.html "article5")
@@ -776,6 +774,41 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
  2加快js执行速度 比如常见的无限滚动的页面，可以使用js先渲染一个屏幕范围内的东西
  3提供一些友好的交互，比如提供一些假的滚动条
  4使用本地存储处理静态文件。
+
+### h5 小特效实践
+
+#### 加速度感应（摇一摇）
+
+ if (window.DeviceMotionEvent) { 
+     window.addEventListener('devicemotion',deviceMotionHandler, false);  
+ } 
+ var speed = 30;//speed
+ var x = y = z = lastX = lastY = lastZ = 0;
+ function deviceMotionHandler(eventData) {  
+     var acceleration =event.accelerationIncludingGravity;
+     x = acceleration.x;
+     y = acceleration.y;
+     z = acceleration.z;
+     if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed || Math.abs(z-lastZ) > speed) {
+         alert('别摇那么大力嘛...');
+         // your code here
+     }
+     lastX = x;
+     lastY = y;
+     lastZ = z;
+ }
+ 
+#### 抽奖转盘
+
+#### 刮彩票
+
+#### 全景效果
+
+#### 描边动画
+
+#### 翻书
+
+
 
 
 ###如何实现打开已安装的app，若未安装则引导用户安装?
