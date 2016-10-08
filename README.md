@@ -532,6 +532,9 @@ iPhone 4的一个 CSS 像素实际上表现为一块 2×2 的像素。所以图�
 
 [以层为基础的渲染加速－chrome](http://www.html5rocks.com/zh/tutorials/speed/layers/)
 
+[css3动画性能优化原理](http://www.w3cplus.com/animation/animation-performance.html)
+
+
 ###点击与click事件
 
 对于a标记的点击导航，默认是在onclick事件中处理的。而移动客户端对onclick的响应相比PC浏览器有着明显的几百毫秒延迟。
