@@ -673,6 +673,22 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 <http://www.w3.org/TR/css3-flexbox/>
 
 
+### 3dTouch相关 
+
+https://developer.mozilla.org/en-US/docs/Web/API/Force_Touch_events
+
+https://aotu.io/notes/2016/09/28/3d-touch/
+
+
+### pwa与service worker
+
+https://segmentfault.com/a/1190000005641692  pwa介绍
+
+https://zhuanlan.zhihu.com/p/20040372  service woker介绍
+
+http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=207243549&idx=1&sn=4ebe4beb8123f1b5ab58810ac8bc5994&scene=0#rd  微信与其它app的推送技术介绍
+
+https://segmentfault.com/a/1190000005346689 pwa资料整理
 
 ###居中问题
 
