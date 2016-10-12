@@ -769,6 +769,28 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
+###iphone系列媒体查询
+
+@media only screen and (min-device-width: 320px){  
+         //针对iPhone 3  
+}  
+   
+@media only screen and (min-device-width: 320px)and (-webkit-min-device-pixel-ratio: 2) {  
+         //针对iPhone 4, 5c,5s, 所有iPhone6的放大模式，个别iPhone6的标准模式  
+}  
+@media only screen and (min-device-width: 375px)and (-webkit-min-device-pixel-ratio: 2) {  
+//针对大多数iPhone6的标准模式  
+}  
+   
+@media only screen and (min-device-width: 375px)and (-webkit-min-device-pixel-ratio: 3) {  
+//针对所有iPhone6+的放大模式  
+   
+}  
+@media only screen and (min-device-width:412px) and (-webkit-min-device-pixel-ratio: 3) {  
+//针对所有iPhone6+的标准模式,414px写为412px是由于三星Nexus 6为412px，可一并处理  
+   
+}  
+
 
 ###判断照片的横竖排列
 
