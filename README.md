@@ -1053,6 +1053,11 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 
 [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left](http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
 
+### webgl导致app闪退
+
+iOS 客户端切到后台后如果 webgl 在canvas上渲染会导致客户端crash。原因是 iOS 下使用 webgl 渲染时，WebCore 会调用到 OpenGL ES 进行渲染，而苹果发现有在后台调用 OpenGL ES，就会直接结束 App。相关文档 <https://developer.apple.com/library/content/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/ImplementingaMultitasking-awareOpenGLESApplication/ImplementingaMultitasking-awareOpenGLESApplication.html>。
+
+解决方案：一般的客户端容器技术（phonegap weex等）都提供了监测app切换的事件，在事件中主动暂停/恢复 webgl 的渲染即可
 
 ###拿到滚动条
 
