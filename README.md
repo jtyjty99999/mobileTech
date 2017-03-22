@@ -1214,6 +1214,11 @@ worker:
 
 参考 http://stackoverflow.com/questions/20443574/fixed-background-image-with-ios7
 
+## 在高清屏幕上实现 1px 的几种方案
+
+- http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html
+- http://www.cnblogs.com/lunarorbitx/p/5287309.html
+
 ##如何让音频跟视频在ios跟android上自动播放
 
 	<audio autoplay ><source  src="audio/alarm1.mp3" type="audio/mpeg"></audio>
