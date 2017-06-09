@@ -732,6 +732,30 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 ###移动端实现标题文字截断
 <http://www.75team.com/archives/611>
 
+### ios实现复制到剪贴板
+
+	var $input = $(' some input/textarea ');
+	$input.val(result);
+	if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+	  var el = $input.get(0);
+	  var editable = el.contentEditable;
+	  var readOnly = el.readOnly;
+	  el.contentEditable = true;
+	  el.readOnly = false;
+	  var range = document.createRange();
+	  range.selectNodeContents(el);
+	  var sel = window.getSelection();
+	  sel.removeAllRanges();
+	  sel.addRange(range);
+	  el.setSelectionRange(0, 999999);
+	  el.contentEditable = editable;
+	  el.readOnly = readOnly;
+	} else {
+	  $input.select();
+	}
+	document.execCommand('copy');
+	$input.blur();
+
 ## placeholder--line-height
  input 的placeholder会出现文本位置偏上的情况：PC端设置line-height等于height能够对齐，而移动端仍然是偏上，解决是设置line-height：normal，（stackoverflow也可查到这种解决办法）。
 
