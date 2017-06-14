@@ -1365,6 +1365,21 @@ Canvas更新 ：createImageData有一个参数，现在有两个新的功能做�
 
 [ios7的一些坑2(英文)](http://www.mobilexweb.com/blog/safari-ios7-html5-problems-apis-review "ios7的一些bug")
 
+## IOS10的一些更新
+* 禁止缩放，`meta`不再支持
+``` html
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+```
+需要监听`touchmove`来实现禁止缩放
+```javascript
+document.addEventListener('touchmove', function(event) {
+    event = event.originalEvent || event;
+    if(event.scale > 1) {
+        event.preventDefault();
+    }
+}, false);
+```
+相关链接：[disable viewport zooming iOS 10 safari?](https://stackoverflow.com/questions/37808180/disable-viewport-zooming-ios-10-safari)
 
 
 ## webview相关
