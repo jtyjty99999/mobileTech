@@ -729,6 +729,7 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 如果切换输入法，由于不同输入法高度不同，又会出现被遮挡问题。由于无法捕获切换输入法的事件，因此可以开一个计时器，不断执行sscrollintoview即可。
 
 
+
 ### 移动端实现标题文字截断
 <http://www.75team.com/archives/611>
 
@@ -950,6 +951,10 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 	a[i].addEventListener(‘touchstart’,function(){},false);
 	}
 	</script>
+
+### 视频播放的各种技术
+
+http://taobaofed.org/blog/2016/05/23/video-player/
 
 ### 消除transition闪屏
 
