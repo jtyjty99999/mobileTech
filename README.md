@@ -693,6 +693,8 @@ http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=207243549&idx=1&sn=4ebe4beb
 
 https://segmentfault.com/a/1190000005346689 pwa资料整理
 
+https://segmentfault.com/a/1190000010911535 pwa 最新资讯
+
 ### 居中问题
 
 居中是移动端跟pc端共同的噩梦。这里有两种兼容性比较好的新方案。
