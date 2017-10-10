@@ -604,6 +604,9 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 
 	-webkit-tap-highlight-color: 颜色
 
+### iphoneX 适配
+
+http://www.w3cplus.com/mobile/designing-websites-for-iphone-x.html
 
 ### 检测判断 iPhone/iPod
 开发特定设备的移动网站，首先要做的就是设备侦测了。下面是使用Javascript侦测iPhone/iPod的UA，然后转向到专属的URL。
