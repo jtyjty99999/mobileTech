@@ -586,6 +586,16 @@ Media Query 相信大部分人已经使用过了。其实 JavaScript可以配合
 
 也可以通过获取 CSS 值来使用 Media Query 判断设备情况，详情请看：[JavaScript 依据 CSS Media Queries 判断设备的方法](http://yujiangshui.com/use-javascript-css-media-queries-detect-device-state/)。
 
+### 使用gpu判断iphone型号
+
+参考 http://www.sohu.com/a/157376672_505818
+
+https://developer.apple.com/library/content/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/HardwareGPUInformation/HardwareGPUInformation.html
+
+每一代 iOS 设备的 GPU 型号都是不同的，比如 iPhone 6 是 A8，而 iPhone 6s 就是 A9。可以通过识别 GPU 的型号来辨别设备的型号。
+有些设备 GPU 型号完全相同，比如 iPhone 6s ，iPhone 6s Plus ， iPhone SE 。它们用的都是 Apple A9 GPU ，这个时候可以利用它们的分辨率不同来进行区分。
+
+实例代码 https://github.com/joyqi/mobile-device-js
 
 ### rem最佳实践
 
