@@ -909,7 +909,6 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 
 
-
 ### 如何实现打开已安装的app，若未安装则引导用户安装?
 
 来自 <http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
@@ -946,6 +945,8 @@ h5页面有个很蛋疼的问题就是，当输入框在最底部，点击软键
 
 
 补充一个来自三水清的详细讲解 <http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
+
+在微信、微博、QQ、Safari唤起App的解决方案汇总 ： https://mp.weixin.qq.com/s/YAnlEBMZP_e91MXjPbAp-w
 
 ### active的兼容(来自薛端阳)
 
