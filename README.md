@@ -196,6 +196,8 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 
 [手机淘宝的flexible设计与实现](http://www.html-js.com/article/2402 "pixel")
 
+[再聊移动端页面的适配](https://www.w3cplus.com/css/vw-for-layout.html)
+
 
 ## 移动开发事件
 
