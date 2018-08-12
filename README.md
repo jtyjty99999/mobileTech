@@ -5,17 +5,15 @@ A useful tools or tips list for mobile web application developing
 这个项目收集移动端开发所需要的一些资源与小技巧
 
 
-## 移动端统计 (from BiosSun)
+## 移动端统计
 
- 可基于下方所列出的统计数据来决定您要兼容的设备及浏览器。
+可基于下方所列出的统计数据来决定您要兼容的设备及浏览器。
 
-  [百度移动统计](http://tongji.baidu.com/data/mobile/brand "百度移动设备统计")
+[百度移动统计](https://mtj.baidu.com/data/mobile/device "百度移动设备统计")
 
-  [友盟指数](http://www.umindex.com/ "友盟指数")
+[友盟全域罗盘](https://compass.umeng.com/#/equipment "友盟全域罗盘")
 
-  [CNZZ 桌面及移动端浏览器统计](http://brow.data.cnzz.com/ "CNZZ 桌面及移动端浏览器统计")
-
-  [全球移动端浏览器统计](https://www.netmarketshare.com/browser-market-share.aspx?qprid=0&qpcustomd=1 "全球移动端浏览器统计")
+[StatCounter](http://gs.statcounter.com/vendor-market-share/mobile/china/2013 "StatCounter")
 
 ## 工具类网站
 
